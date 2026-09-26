@@ -1,0 +1,12 @@
+{
+  "name": "@saygm-examples/shared",
+  "version": "0.1.0",
+  "private": true,
+  "description": "Model roles and run reporting shared by the SayGM examples",
+  "type": "module",
+  "exports": {
+    ".": "./index.ts",
+    "./meter": "./meter.ts",
+    "./install-meter": "./install-meter.ts"
+  }
+}

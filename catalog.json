@@ -1,0 +1,1150 @@
+{
+  "base_urls": {
+    "openai": "https://api.saygm.com/v1",
+    "anthropic": "https://api.saygm.com"
+  },
+  "roles": {
+    "chat_cheap": {
+      "model": "deepseek-v4.1-flash",
+      "shape": "chat.completions",
+      "tools": true
+    },
+    "responses_tools": {
+      "model": "gpt-5.4-nano",
+      "shape": "responses",
+      "tools": true
+    },
+    "claude": {
+      "model": "claude-haiku-4-5",
+      "shape": "messages",
+      "tools": true
+    }
+  },
+  "models": {
+    "claude-fable-5": {
+      "api_shapes": [
+        "messages"
+      ],
+      "available": true,
+      "tools": true,
+      "pricing": {
+        "input_per_mtok_ndollars": 8930000000,
+        "output_per_mtok_ndollars": 44650000000,
+        "cache_read_per_mtok_ndollars": 893000000,
+        "cache_write_5m_per_mtok_ndollars": 11162500000,
+        "cache_write_1h_per_mtok_ndollars": 17860000000
+      },
+      "budget_rates": {
+        "input": 10000000000,
+        "output": 50000000000,
+        "cache_read": 10000000000,
+        "cache_write": 20000000000
+      }
+    },
+    "claude-fable-5-1": {
+      "api_shapes": [
+        "messages"
+      ],
+      "available": true,
+      "tools": true,
+      "pricing": {
+        "input_per_mtok_ndollars": 8930000000,
+        "output_per_mtok_ndollars": 44650000000,
+        "cache_read_per_mtok_ndollars": 223250000,
+        "cache_write_5m_per_mtok_ndollars": 11162500000,
+        "cache_write_1h_per_mtok_ndollars": 17860000000
+      },
+      "budget_rates": {
+        "input": 10000000000,
+        "output": 50000000000,
+        "cache_read": 10000000000,
+        "cache_write": 20000000000
+      }
+    },
+    "claude-fable-5-2": {
+      "api_shapes": [
+        "messages"
+      ],
+      "available": false,
+      "tools": true,
+      "pricing": {},
+      "budget_rates": null
+    },
+    "claude-haiku-4-5": {
+      "api_shapes": [
+        "messages"
+      ],
+      "available": true,
+      "tools": true,
+      "pricing": {
+        "input_per_mtok_ndollars": 893000000,
+        "output_per_mtok_ndollars": 4465000000,
+        "cache_read_per_mtok_ndollars": 89300000,
+        "cache_write_5m_per_mtok_ndollars": 1116250000,
+        "cache_write_1h_per_mtok_ndollars": 1786000000
+      },
+      "budget_rates": {
+        "input": 1000000000,
+        "output": 5000000000,
+        "cache_read": 1000000000,
+        "cache_write": 2000000000
+      }
+    },
+    "claude-opus-4-7": {
+      "api_shapes": [
+        "messages"
+      ],
+      "available": true,
+      "tools": true,
+      "pricing": {
+        "input_per_mtok_ndollars": 4465000000,
+        "output_per_mtok_ndollars": 22325000000,
+        "cache_read_per_mtok_ndollars": 446500000,
+        "cache_write_5m_per_mtok_ndollars": 5581250000,
+        "cache_write_1h_per_mtok_ndollars": 8930000000
+      },
+      "budget_rates": {
+        "input": 5000000000,
+        "output": 25000000000,
+        "cache_read": 5000000000,
+        "cache_write": 10000000000
+      }
+    },
+    "claude-opus-4-8": {
+      "api_shapes": [
+        "messages"
+      ],
+      "available": true,
+      "tools": true,
+      "pricing": {
+        "input_per_mtok_ndollars": 4465000000,
+        "output_per_mtok_ndollars": 22325000000,
+        "cache_read_per_mtok_ndollars": 446500000,
+        "cache_write_5m_per_mtok_ndollars": 5581250000,
+        "cache_write_1h_per_mtok_ndollars": 8930000000
+      },
+      "budget_rates": {
+        "input": 5000000000,
+        "output": 25000000000,
+        "cache_read": 5000000000,
+        "cache_write": 10000000000
+      }
+    },
+    "claude-opus-5": {
+      "api_shapes": [
+        "messages"
+      ],
+      "available": true,
+      "tools": true,
+      "pricing": {
+        "input_per_mtok_ndollars": 4465000000,
+        "output_per_mtok_ndollars": 22325000000,
+        "cache_read_per_mtok_ndollars": 446500000,
+        "cache_write_5m_per_mtok_ndollars": 5581250000,
+        "cache_write_1h_per_mtok_ndollars": 8930000000
+      },
+      "budget_rates": {
+        "input": 5000000000,
+        "output": 25000000000,
+        "cache_read": 5000000000,
+        "cache_write": 10000000000
+      }
+    },
+    "claude-opus-5-5": {
+      "api_shapes": [
+        "messages"
+      ],
+      "available": true,
+      "tools": true,
+      "pricing": {
+        "input_per_mtok_ndollars": 3572000000,
+        "output_per_mtok_ndollars": 17860000000,
+        "cache_read_per_mtok_ndollars": 178600000,
+        "cache_write_5m_per_mtok_ndollars": 4465000000,
+        "cache_write_1h_per_mtok_ndollars": 7144000000
+      },
+      "budget_rates": {
+        "input": 4000000000,
+        "output": 20000000000,
+        "cache_read": 4000000000,
+        "cache_write": 8000000000
+      }
+    },
+    "claude-sonnet-4-6": {
+      "api_shapes": [
+        "messages"
+      ],
+      "available": true,
+      "tools": true,
+      "pricing": {
+        "input_per_mtok_ndollars": 2679000000,
+        "output_per_mtok_ndollars": 13395000000,
+        "cache_read_per_mtok_ndollars": 267900000,
+        "cache_write_5m_per_mtok_ndollars": 3348750000,
+        "cache_write_1h_per_mtok_ndollars": 5358000000
+      },
+      "budget_rates": {
+        "input": 3000000000,
+        "output": 15000000000,
+        "cache_read": 3000000000,
+        "cache_write": 6000000000
+      }
+    },
+    "claude-sonnet-5": {
+      "api_shapes": [
+        "messages"
+      ],
+      "available": true,
+      "tools": true,
+      "pricing": {
+        "input_per_mtok_ndollars": 1786000000,
+        "output_per_mtok_ndollars": 8930000000,
+        "cache_read_per_mtok_ndollars": 178600000,
+        "cache_write_5m_per_mtok_ndollars": 2232500000,
+        "cache_write_1h_per_mtok_ndollars": 3572000000
+      },
+      "budget_rates": {
+        "input": 2000000000,
+        "output": 10000000000,
+        "cache_read": 2000000000,
+        "cache_write": 4000000000
+      }
+    },
+    "deepseek-v3.2-tee": {
+      "api_shapes": [
+        "chat.completions"
+      ],
+      "available": true,
+      "tools": true,
+      "pricing": {
+        "input_per_mtok_ndollars": 482800000,
+        "output_per_mtok_ndollars": 482800000,
+        "cache_read_per_mtok_ndollars": 48280000
+      },
+      "budget_rates": {
+        "input": 1000000000,
+        "output": 1000000000,
+        "cache_read": 1000000000,
+        "cache_write": 1000000000
+      }
+    },
+    "deepseek-v4-flash-0731": {
+      "api_shapes": [
+        "chat.completions"
+      ],
+      "available": true,
+      "tools": true,
+      "pricing": {
+        "input_per_mtok_ndollars": 129316000,
+        "output_per_mtok_ndollars": 387948000,
+        "cache_read_per_mtok_ndollars": 4114600
+      },
+      "budget_rates": {
+        "input": 440000000,
+        "output": 1320000000,
+        "cache_read": 440000000,
+        "cache_write": 440000000
+      }
+    },
+    "deepseek-v4-flash-0731-tee": {
+      "api_shapes": [
+        "chat.completions"
+      ],
+      "available": true,
+      "tools": true,
+      "pricing": {
+        "input_per_mtok_ndollars": 219912000,
+        "output_per_mtok_ndollars": 659736000,
+        "cache_read_per_mtok_ndollars": 21991200
+      },
+      "budget_rates": {
+        "input": 440000000,
+        "output": 1320000000,
+        "cache_read": 440000000,
+        "cache_write": 440000000
+      }
+    },
+    "deepseek-v4.1-flash": {
+      "api_shapes": [
+        "chat.completions"
+      ],
+      "available": true,
+      "tools": true,
+      "pricing": {
+        "input_per_mtok_ndollars": 89940000,
+        "output_per_mtok_ndollars": 359760000,
+        "cache_read_per_mtok_ndollars": 1798800
+      },
+      "budget_rates": {
+        "input": 300000000,
+        "output": 1200000000,
+        "cache_read": 300000000,
+        "cache_write": 300000000
+      }
+    },
+    "flux.2-klein-4b": {
+      "api_shapes": [
+        "images.generations"
+      ],
+      "available": true,
+      "tools": true,
+      "pricing": {
+        "output_per_image_ndollars": 13500000
+      },
+      "budget_rates": null
+    },
+    "gemini-3.1-flash-image": {
+      "api_shapes": [
+        "generateContent"
+      ],
+      "available": true,
+      "tools": true,
+      "pricing": {
+        "input_per_mtok_ndollars": 425000000,
+        "output_per_mtok_ndollars": 2550000000,
+        "audio_input_per_mtok_ndollars": 425000000,
+        "audio_output_per_mtok_ndollars": 2550000000,
+        "image_input_per_mtok_ndollars": 425000000,
+        "image_output_per_mtok_ndollars": 51000000000
+      },
+      "budget_rates": {
+        "input": 500000000,
+        "output": 3000000000,
+        "cache_read": 500000000,
+        "cache_write": 500000000
+      }
+    },
+    "gemini-3.1-flash-lite": {
+      "api_shapes": [
+        "generateContent",
+        "streamGenerateContent"
+      ],
+      "available": true,
+      "tools": true,
+      "pricing": {
+        "input_per_mtok_ndollars": 212500000,
+        "output_per_mtok_ndollars": 1275000000,
+        "cache_read_per_mtok_ndollars": 21250000,
+        "audio_input_per_mtok_ndollars": 425000000,
+        "audio_output_per_mtok_ndollars": 1275000000,
+        "image_input_per_mtok_ndollars": 212500000
+      },
+      "budget_rates": {
+        "input": 250000000,
+        "output": 1500000000,
+        "cache_read": 250000000,
+        "cache_write": 250000000
+      }
+    },
+    "gemini-3.1-flash-lite-image": {
+      "api_shapes": [
+        "generateContent"
+      ],
+      "available": true,
+      "tools": true,
+      "pricing": {
+        "input_per_mtok_ndollars": 212500000,
+        "output_per_mtok_ndollars": 1275000000,
+        "audio_input_per_mtok_ndollars": 212500000,
+        "audio_output_per_mtok_ndollars": 1275000000,
+        "image_input_per_mtok_ndollars": 212500000,
+        "image_output_per_mtok_ndollars": 25500000000
+      },
+      "budget_rates": {
+        "input": 250000000,
+        "output": 1500000000,
+        "cache_read": 250000000,
+        "cache_write": 250000000
+      }
+    },
+    "gemini-3.1-pro-preview": {
+      "api_shapes": [
+        "generateContent",
+        "streamGenerateContent"
+      ],
+      "available": true,
+      "tools": true,
+      "pricing": {
+        "input_per_mtok_ndollars": 1700000000,
+        "output_per_mtok_ndollars": 10200000000,
+        "cache_read_per_mtok_ndollars": 170000000,
+        "audio_input_per_mtok_ndollars": 1700000000,
+        "audio_output_per_mtok_ndollars": 10200000000,
+        "image_input_per_mtok_ndollars": 1700000000,
+        "long_context_threshold_tokens": 200000,
+        "long_context_input_per_mtok_ndollars": 3400000000,
+        "long_context_output_per_mtok_ndollars": 15300000000,
+        "long_context_cache_read_per_mtok_ndollars": 340000000
+      },
+      "budget_rates": {
+        "input": 4000000000,
+        "output": 18000000000,
+        "cache_read": 4000000000,
+        "cache_write": 4000000000
+      }
+    },
+    "gemini-3.5-flash": {
+      "api_shapes": [
+        "generateContent",
+        "streamGenerateContent"
+      ],
+      "available": true,
+      "tools": true,
+      "pricing": {
+        "input_per_mtok_ndollars": 1275000000,
+        "output_per_mtok_ndollars": 7650000000,
+        "cache_read_per_mtok_ndollars": 127500000,
+        "audio_input_per_mtok_ndollars": 1275000000,
+        "audio_output_per_mtok_ndollars": 7650000000,
+        "image_input_per_mtok_ndollars": 1275000000
+      },
+      "budget_rates": {
+        "input": 1500000000,
+        "output": 9000000000,
+        "cache_read": 1500000000,
+        "cache_write": 1500000000
+      }
+    },
+    "gemini-3.5-flash-lite": {
+      "api_shapes": [
+        "generateContent",
+        "streamGenerateContent"
+      ],
+      "available": true,
+      "tools": true,
+      "pricing": {
+        "input_per_mtok_ndollars": 255000000,
+        "output_per_mtok_ndollars": 2125000000,
+        "cache_read_per_mtok_ndollars": 25500000,
+        "audio_input_per_mtok_ndollars": 255000000,
+        "audio_output_per_mtok_ndollars": 2125000000,
+        "image_input_per_mtok_ndollars": 255000000
+      },
+      "budget_rates": {
+        "input": 300000000,
+        "output": 2500000000,
+        "cache_read": 300000000,
+        "cache_write": 300000000
+      }
+    },
+    "gemini-3.6-flash": {
+      "api_shapes": [
+        "generateContent",
+        "streamGenerateContent"
+      ],
+      "available": true,
+      "tools": true,
+      "pricing": {
+        "input_per_mtok_ndollars": 637500000,
+        "output_per_mtok_ndollars": 3187500000,
+        "cache_read_per_mtok_ndollars": 63750000,
+        "audio_input_per_mtok_ndollars": 637500000,
+        "audio_output_per_mtok_ndollars": 3187500000,
+        "image_input_per_mtok_ndollars": 637500000
+      },
+      "budget_rates": {
+        "input": 750000000,
+        "output": 3750000000,
+        "cache_read": 750000000,
+        "cache_write": 750000000
+      }
+    },
+    "gemini-3.7-flash": {
+      "api_shapes": [
+        "generateContent",
+        "streamGenerateContent"
+      ],
+      "available": true,
+      "tools": true,
+      "pricing": {
+        "input_per_mtok_ndollars": 637500000,
+        "output_per_mtok_ndollars": 3187500000,
+        "cache_read_per_mtok_ndollars": 63750000,
+        "audio_input_per_mtok_ndollars": 637500000,
+        "audio_output_per_mtok_ndollars": 3187500000,
+        "image_input_per_mtok_ndollars": 637500000
+      },
+      "budget_rates": {
+        "input": 750000000,
+        "output": 3750000000,
+        "cache_read": 750000000,
+        "cache_write": 750000000
+      }
+    },
+    "gemini-3.8-flash": {
+      "api_shapes": [
+        "generateContent",
+        "streamGenerateContent"
+      ],
+      "available": true,
+      "tools": true,
+      "pricing": {
+        "input_per_mtok_ndollars": 637500000,
+        "output_per_mtok_ndollars": 3187500000,
+        "cache_read_per_mtok_ndollars": 63750000,
+        "audio_input_per_mtok_ndollars": 637500000,
+        "audio_output_per_mtok_ndollars": 3187500000,
+        "image_input_per_mtok_ndollars": 637500000
+      },
+      "budget_rates": {
+        "input": 750000000,
+        "output": 3750000000,
+        "cache_read": 750000000,
+        "cache_write": 750000000
+      }
+    },
+    "gemma-4-31b-turbo-tee": {
+      "api_shapes": [
+        "chat.completions"
+      ],
+      "available": true,
+      "tools": true,
+      "pricing": {
+        "input_per_mtok_ndollars": 58764000,
+        "output_per_mtok_ndollars": 181189000,
+        "cache_read_per_mtok_ndollars": 5876400
+      },
+      "budget_rates": {
+        "input": 120000000,
+        "output": 370000000,
+        "cache_read": 120000000,
+        "cache_write": 120000000
+      }
+    },
+    "glm-5.1-tee": {
+      "api_shapes": [
+        "chat.completions"
+      ],
+      "available": true,
+      "tools": true,
+      "pricing": {
+        "input_per_mtok_ndollars": 482720000,
+        "output_per_mtok_ndollars": 1517120000,
+        "cache_read_per_mtok_ndollars": 89648000
+      },
+      "budget_rates": {
+        "input": 1400000000,
+        "output": 4400000000,
+        "cache_read": 1400000000,
+        "cache_write": 1400000000
+      }
+    },
+    "glm-5.2": {
+      "api_shapes": [
+        "chat.completions"
+      ],
+      "available": true,
+      "tools": true,
+      "pricing": {
+        "input_per_mtok_ndollars": 429380000,
+        "output_per_mtok_ndollars": 1349480000,
+        "cache_read_per_mtok_ndollars": 79742000
+      },
+      "budget_rates": {
+        "input": 1400000000,
+        "output": 4400000000,
+        "cache_read": 1400000000,
+        "cache_write": 1400000000
+      }
+    },
+    "glm-5.2-tee": {
+      "api_shapes": [
+        "chat.completions"
+      ],
+      "available": true,
+      "tools": true,
+      "pricing": {
+        "input_per_mtok_ndollars": 437780000,
+        "output_per_mtok_ndollars": 1375880000,
+        "cache_read_per_mtok_ndollars": 93810000
+      },
+      "budget_rates": {
+        "input": 1400000000,
+        "output": 4400000000,
+        "cache_read": 1400000000,
+        "cache_write": 1400000000
+      }
+    },
+    "glm-5.3": {
+      "api_shapes": [
+        "chat.completions"
+      ],
+      "available": true,
+      "tools": true,
+      "pricing": {
+        "input_per_mtok_ndollars": 803600000,
+        "output_per_mtok_ndollars": 2525600000,
+        "cache_read_per_mtok_ndollars": 149240000
+      },
+      "budget_rates": {
+        "input": 1400000000,
+        "output": 4400000000,
+        "cache_read": 1400000000,
+        "cache_write": 1400000000
+      }
+    },
+    "glm-5.3-flash": {
+      "api_shapes": [
+        "chat.completions"
+      ],
+      "available": true,
+      "tools": true,
+      "pricing": {
+        "input_per_mtok_ndollars": 133500000,
+        "output_per_mtok_ndollars": 445000000,
+        "cache_read_per_mtok_ndollars": 26700000
+      },
+      "budget_rates": {
+        "input": 150000000,
+        "output": 500000000,
+        "cache_read": 150000000,
+        "cache_write": 150000000
+      }
+    },
+    "gpt-5.4": {
+      "api_shapes": [
+        "chat.completions",
+        "responses"
+      ],
+      "available": true,
+      "tools": true,
+      "pricing": {
+        "input_per_mtok_ndollars": 2037500000,
+        "output_per_mtok_ndollars": 12225000000,
+        "cache_read_per_mtok_ndollars": 203750000,
+        "long_context_threshold_tokens": 272000,
+        "long_context_input_per_mtok_ndollars": 4075000000,
+        "long_context_output_per_mtok_ndollars": 18337500000,
+        "long_context_cache_read_per_mtok_ndollars": 407500000
+      },
+      "budget_rates": {
+        "input": 5000000000,
+        "output": 22500000000,
+        "cache_read": 5000000000,
+        "cache_write": 5000000000
+      }
+    },
+    "gpt-5.4-mini": {
+      "api_shapes": [
+        "chat.completions",
+        "responses"
+      ],
+      "available": true,
+      "tools": true,
+      "pricing": {
+        "input_per_mtok_ndollars": 562500000,
+        "output_per_mtok_ndollars": 3375000000,
+        "cache_read_per_mtok_ndollars": 56250000
+      },
+      "budget_rates": {
+        "input": 750000000,
+        "output": 4500000000,
+        "cache_read": 750000000,
+        "cache_write": 750000000
+      }
+    },
+    "gpt-5.4-nano": {
+      "api_shapes": [
+        "chat.completions",
+        "responses"
+      ],
+      "available": true,
+      "tools": true,
+      "pricing": {
+        "input_per_mtok_ndollars": 163000000,
+        "output_per_mtok_ndollars": 1018750000,
+        "cache_read_per_mtok_ndollars": 16300000
+      },
+      "budget_rates": {
+        "input": 200000000,
+        "output": 1250000000,
+        "cache_read": 200000000,
+        "cache_write": 200000000
+      }
+    },
+    "gpt-5.5": {
+      "api_shapes": [
+        "chat.completions",
+        "responses"
+      ],
+      "available": true,
+      "tools": true,
+      "pricing": {
+        "input_per_mtok_ndollars": 4075000000,
+        "output_per_mtok_ndollars": 24450000000,
+        "cache_read_per_mtok_ndollars": 407500000,
+        "long_context_threshold_tokens": 272000,
+        "long_context_input_per_mtok_ndollars": 8150000000,
+        "long_context_output_per_mtok_ndollars": 36675000000,
+        "long_context_cache_read_per_mtok_ndollars": 815000000
+      },
+      "budget_rates": {
+        "input": 10000000000,
+        "output": 45000000000,
+        "cache_read": 10000000000,
+        "cache_write": 10000000000
+      }
+    },
+    "gpt-5.5-pro": {
+      "api_shapes": [
+        "responses"
+      ],
+      "available": true,
+      "tools": true,
+      "pricing": {
+        "input_per_mtok_ndollars": 24600000000,
+        "output_per_mtok_ndollars": 147600000000,
+        "cache_read_per_mtok_ndollars": 2460000000,
+        "long_context_threshold_tokens": 272000,
+        "long_context_input_per_mtok_ndollars": 49200000000,
+        "long_context_output_per_mtok_ndollars": 221400000000
+      },
+      "budget_rates": {
+        "input": 60000000000,
+        "output": 270000000000,
+        "cache_read": 60000000000,
+        "cache_write": 60000000000
+      }
+    },
+    "gpt-5.6-luna": {
+      "api_shapes": [
+        "chat.completions",
+        "responses"
+      ],
+      "available": true,
+      "tools": true,
+      "pricing": {
+        "input_per_mtok_ndollars": 163000000,
+        "output_per_mtok_ndollars": 978000000,
+        "cache_read_per_mtok_ndollars": 16300000,
+        "cache_write_per_mtok_ndollars": 203750000,
+        "long_context_threshold_tokens": 272000,
+        "long_context_input_per_mtok_ndollars": 326000000,
+        "long_context_output_per_mtok_ndollars": 1467000000,
+        "long_context_cache_read_per_mtok_ndollars": 32600000,
+        "long_context_cache_write_per_mtok_ndollars": 407500000
+      },
+      "budget_rates": {
+        "input": 400000000,
+        "output": 1800000000,
+        "cache_read": 400000000,
+        "cache_write": 500000000
+      }
+    },
+    "gpt-5.6-sol": {
+      "api_shapes": [
+        "chat.completions",
+        "responses"
+      ],
+      "available": true,
+      "tools": true,
+      "pricing": {
+        "input_per_mtok_ndollars": 3260000000,
+        "output_per_mtok_ndollars": 16300000000,
+        "cache_read_per_mtok_ndollars": 326000000,
+        "cache_write_per_mtok_ndollars": 4075000000,
+        "long_context_threshold_tokens": 272000,
+        "long_context_input_per_mtok_ndollars": 6520000000,
+        "long_context_output_per_mtok_ndollars": 24450000000,
+        "long_context_cache_read_per_mtok_ndollars": 652000000,
+        "long_context_cache_write_per_mtok_ndollars": 8150000000
+      },
+      "budget_rates": {
+        "input": 8000000000,
+        "output": 30000000000,
+        "cache_read": 8000000000,
+        "cache_write": 10000000000
+      }
+    },
+    "gpt-5.6-terra": {
+      "api_shapes": [
+        "chat.completions",
+        "responses"
+      ],
+      "available": true,
+      "tools": true,
+      "pricing": {
+        "input_per_mtok_ndollars": 1630000000,
+        "output_per_mtok_ndollars": 9780000000,
+        "cache_read_per_mtok_ndollars": 163000000,
+        "cache_write_per_mtok_ndollars": 2037500000,
+        "long_context_threshold_tokens": 272000,
+        "long_context_input_per_mtok_ndollars": 3260000000,
+        "long_context_output_per_mtok_ndollars": 14670000000,
+        "long_context_cache_read_per_mtok_ndollars": 326000000,
+        "long_context_cache_write_per_mtok_ndollars": 4075000000
+      },
+      "budget_rates": {
+        "input": 4000000000,
+        "output": 18000000000,
+        "cache_read": 4000000000,
+        "cache_write": 5000000000
+      }
+    },
+    "gpt-6-astra": {
+      "api_shapes": [
+        "chat.completions",
+        "responses"
+      ],
+      "available": true,
+      "tools": true,
+      "pricing": {
+        "input_per_mtok_ndollars": 8150000000,
+        "output_per_mtok_ndollars": 40750000000,
+        "cache_read_per_mtok_ndollars": 815000000,
+        "cache_write_per_mtok_ndollars": 10187500000,
+        "long_context_threshold_tokens": 272000,
+        "long_context_input_per_mtok_ndollars": 16300000000,
+        "long_context_output_per_mtok_ndollars": 61125000000,
+        "long_context_cache_read_per_mtok_ndollars": 1630000000,
+        "long_context_cache_write_per_mtok_ndollars": 20375000000
+      },
+      "budget_rates": {
+        "input": 20000000000,
+        "output": 75000000000,
+        "cache_read": 20000000000,
+        "cache_write": 25000000000
+      }
+    },
+    "gpt-6-luna": {
+      "api_shapes": [
+        "chat.completions",
+        "responses"
+      ],
+      "available": true,
+      "tools": true,
+      "pricing": {
+        "input_per_mtok_ndollars": 81500000,
+        "output_per_mtok_ndollars": 407500000,
+        "cache_read_per_mtok_ndollars": 8150000,
+        "cache_write_per_mtok_ndollars": 101875000,
+        "long_context_threshold_tokens": 272000,
+        "long_context_input_per_mtok_ndollars": 163000000,
+        "long_context_output_per_mtok_ndollars": 611250000,
+        "long_context_cache_read_per_mtok_ndollars": 16300000,
+        "long_context_cache_write_per_mtok_ndollars": 203750000
+      },
+      "budget_rates": {
+        "input": 200000000,
+        "output": 750000000,
+        "cache_read": 200000000,
+        "cache_write": 250000000
+      }
+    },
+    "gpt-6-sol": {
+      "api_shapes": [
+        "chat.completions",
+        "responses"
+      ],
+      "available": true,
+      "tools": true,
+      "pricing": {
+        "input_per_mtok_ndollars": 1600000000,
+        "output_per_mtok_ndollars": 8000000000,
+        "cache_read_per_mtok_ndollars": 160000000,
+        "cache_write_per_mtok_ndollars": 2000000000,
+        "long_context_threshold_tokens": 272000,
+        "long_context_input_per_mtok_ndollars": 3200000000,
+        "long_context_output_per_mtok_ndollars": 12000000000,
+        "long_context_cache_read_per_mtok_ndollars": 320000000,
+        "long_context_cache_write_per_mtok_ndollars": 4000000000
+      },
+      "budget_rates": {
+        "input": 4000000000,
+        "output": 15000000000,
+        "cache_read": 4000000000,
+        "cache_write": 5000000000
+      }
+    },
+    "gpt-oss-20b": {
+      "api_shapes": [
+        "chat.completions",
+        "responses"
+      ],
+      "available": true,
+      "tools": true,
+      "pricing": {
+        "input_per_mtok_ndollars": 66465000,
+        "output_per_mtok_ndollars": 284850000
+      },
+      "budget_rates": {
+        "input": 70000000,
+        "output": 300000000,
+        "cache_read": 70000000,
+        "cache_write": 70000000
+      }
+    },
+    "kimi-k2.6-tee": {
+      "api_shapes": [
+        "chat.completions"
+      ],
+      "available": true,
+      "tools": true,
+      "pricing": {
+        "input_per_mtok_ndollars": 172400000,
+        "output_per_mtok_ndollars": 982680000,
+        "cache_read_per_mtok_ndollars": 17240000
+      },
+      "budget_rates": {
+        "input": 500000000,
+        "output": 2850000000,
+        "cache_read": 500000000,
+        "cache_write": 500000000
+      }
+    },
+    "kimi-k3": {
+      "api_shapes": [
+        "chat.completions"
+      ],
+      "available": true,
+      "tools": true,
+      "pricing": {
+        "input_per_mtok_ndollars": 1034400000,
+        "output_per_mtok_ndollars": 5172000000,
+        "cache_read_per_mtok_ndollars": 103440000
+      },
+      "budget_rates": {
+        "input": 3000000000,
+        "output": 15000000000,
+        "cache_read": 3000000000,
+        "cache_write": 3000000000
+      }
+    },
+    "kimi-k3-tee": {
+      "api_shapes": [
+        "chat.completions"
+      ],
+      "available": true,
+      "tools": true,
+      "pricing": {
+        "input_per_mtok_ndollars": 1034400000,
+        "output_per_mtok_ndollars": 5172000000,
+        "cache_read_per_mtok_ndollars": 103440000
+      },
+      "budget_rates": {
+        "input": 3000000000,
+        "output": 15000000000,
+        "cache_read": 3000000000,
+        "cache_write": 3000000000
+      }
+    },
+    "mimo-v2.6-pro-ultraspeed": {
+      "api_shapes": [
+        "chat.completions"
+      ],
+      "available": true,
+      "tools": true,
+      "pricing": {
+        "input_per_mtok_ndollars": 3915000000,
+        "output_per_mtok_ndollars": 7830000000,
+        "cache_read_per_mtok_ndollars": 32400000
+      },
+      "budget_rates": {
+        "input": 4350000000,
+        "output": 8700000000,
+        "cache_read": 4350000000,
+        "cache_write": 4350000000
+      }
+    },
+    "mistral-nemo-instruct-2407-tee": {
+      "api_shapes": [
+        "chat.completions"
+      ],
+      "available": true,
+      "tools": true,
+      "pricing": {
+        "input_per_mtok_ndollars": 11997650,
+        "output_per_mtok_ndollars": 47892660,
+        "cache_read_per_mtok_ndollars": 1199765
+      },
+      "budget_rates": {
+        "input": 24500000,
+        "output": 97800000,
+        "cache_read": 24500000,
+        "cache_write": 24500000
+      }
+    },
+    "nemotron-3-nano-omni-30b-tee": {
+      "api_shapes": [
+        "chat.completions"
+      ],
+      "available": true,
+      "tools": true,
+      "pricing": {
+        "input_per_mtok_ndollars": 10988250,
+        "output_per_mtok_ndollars": 43863300,
+        "cache_read_per_mtok_ndollars": 1098825
+      },
+      "budget_rates": {
+        "input": 24500000,
+        "output": 97800000,
+        "cache_read": 24500000,
+        "cache_write": 24500000
+      }
+    },
+    "o3": {
+      "api_shapes": [
+        "chat.completions",
+        "responses"
+      ],
+      "available": true,
+      "tools": true,
+      "pricing": {
+        "input_per_mtok_ndollars": 1630000000,
+        "output_per_mtok_ndollars": 6520000000,
+        "cache_read_per_mtok_ndollars": 407500000
+      },
+      "budget_rates": {
+        "input": 2000000000,
+        "output": 8000000000,
+        "cache_read": 2000000000,
+        "cache_write": 2000000000
+      }
+    },
+    "o4-mini": {
+      "api_shapes": [
+        "chat.completions",
+        "responses"
+      ],
+      "available": true,
+      "tools": true,
+      "pricing": {
+        "input_per_mtok_ndollars": 896500000,
+        "output_per_mtok_ndollars": 3586000000,
+        "cache_read_per_mtok_ndollars": 224125000
+      },
+      "budget_rates": {
+        "input": 1100000000,
+        "output": 4400000000,
+        "cache_read": 1100000000,
+        "cache_write": 1100000000
+      }
+    },
+    "ornith-1.5-397b": {
+      "api_shapes": [
+        "chat.completions"
+      ],
+      "available": true,
+      "tools": true,
+      "pricing": {
+        "input_per_mtok_ndollars": 700000000,
+        "output_per_mtok_ndollars": 2200000000,
+        "cache_read_per_mtok_ndollars": 130000000
+      },
+      "budget_rates": {
+        "input": 1400000000,
+        "output": 4400000000,
+        "cache_read": 1400000000,
+        "cache_write": 1400000000
+      }
+    },
+    "qwen3-235b-a22b-thinking-2507-tee": {
+      "api_shapes": [
+        "chat.completions"
+      ],
+      "available": true,
+      "tools": true,
+      "pricing": {
+        "input_per_mtok_ndollars": 144906720,
+        "output_per_mtok_ndollars": 579675360,
+        "cache_read_per_mtok_ndollars": 14490672
+      },
+      "budget_rates": {
+        "input": 298900000,
+        "output": 1195700000,
+        "cache_read": 298900000,
+        "cache_write": 298900000
+      }
+    },
+    "qwen3-32b-tee": {
+      "api_shapes": [
+        "chat.completions"
+      ],
+      "available": true,
+      "tools": true,
+      "pricing": {
+        "input_per_mtok_ndollars": 50928800,
+        "output_per_mtok_ndollars": 203715200,
+        "cache_read_per_mtok_ndollars": 5092880
+      },
+      "budget_rates": {
+        "input": 104000000,
+        "output": 416000000,
+        "cache_read": 104000000,
+        "cache_write": 104000000
+      }
+    },
+    "qwen3.5-397b-a17b-tee": {
+      "api_shapes": [
+        "chat.completions"
+      ],
+      "available": true,
+      "tools": true,
+      "pricing": {
+        "input_per_mtok_ndollars": 155160000,
+        "output_per_mtok_ndollars": 1034400000,
+        "cache_read_per_mtok_ndollars": 15516000
+      },
+      "budget_rates": {
+        "input": 450000000,
+        "output": 3000000000,
+        "cache_read": 450000000,
+        "cache_write": 450000000
+      }
+    },
+    "qwen3.6-27b-tee": {
+      "api_shapes": [
+        "chat.completions"
+      ],
+      "available": true,
+      "tools": true,
+      "pricing": {
+        "input_per_mtok_ndollars": 147240000,
+        "output_per_mtok_ndollars": 981600000,
+        "cache_read_per_mtok_ndollars": 14724000
+      },
+      "budget_rates": {
+        "input": 300000000,
+        "output": 2000000000,
+        "cache_read": 300000000,
+        "cache_write": 300000000
+      }
+    },
+    "qwen3.6-35b-a3b": {
+      "api_shapes": [
+        "chat.completions"
+      ],
+      "available": true,
+      "tools": true,
+      "pricing": {
+        "input_per_mtok_ndollars": 51832000,
+        "output_per_mtok_ndollars": 310365000,
+        "cache_read_per_mtok_ndollars": 51832000
+      },
+      "budget_rates": {
+        "input": 248000000,
+        "output": 1485000000,
+        "cache_read": 248000000,
+        "cache_write": 248000000
+      }
+    },
+    "qwen3.8-27b": {
+      "api_shapes": [
+        "chat.completions"
+      ],
+      "available": true,
+      "tools": true,
+      "pricing": {
+        "input_per_mtok_ndollars": 53250000,
+        "output_per_mtok_ndollars": 319500000,
+        "cache_read_per_mtok_ndollars": 10650000
+      },
+      "budget_rates": {
+        "input": 500000000,
+        "output": 3000000000,
+        "cache_read": 500000000,
+        "cache_write": 500000000
+      }
+    }
+  }
+}

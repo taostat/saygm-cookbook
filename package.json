@@ -1,0 +1,33 @@
+{
+  "name": "saygm-examples",
+  "private": true,
+  "type": "module",
+  "imports": {
+    "#harness/*": "./harness/*"
+  },
+  "scripts": {
+    "sync-catalog": "node harness/bin/sync-catalog.ts",
+    "extract-snippets": "node harness/bin/extract-snippets.ts",
+    "check-drift": "node harness/bin/check-drift.ts",
+    "select-examples": "node harness/bin/select-examples.ts",
+    "run-examples": "node harness/bin/run-examples.ts",
+    "test": "vitest run",
+    "typecheck": "tsc --noEmit && for project in examples/*/tsconfig.json; do tsc --noEmit -p \"$project\" || exit 1; done",
+    "lint": "oxlint --deny-warnings",
+    "format": "oxfmt",
+    "format:check": "oxfmt --check"
+  },
+  "devDependencies": {
+    "@saygm-examples/shared": "workspace:*",
+    "@types/node": "22.20.4",
+    "oxc-parser": "0.151.0",
+    "oxfmt": "0.70.0",
+    "oxlint": "1.85.0",
+    "typescript": "7.0.2",
+    "vitest": "5.0.2"
+  },
+  "engines": {
+    "node": ">=22.18"
+  },
+  "packageManager": "pnpm@10.33.0"
+}

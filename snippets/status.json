@@ -1,0 +1,14 @@
+{
+  "claude-tools": {
+    "verifiedAt": "2026-09-26"
+  },
+  "openai-agents-sdk": {
+    "verifiedAt": "2026-09-26"
+  },
+  "pydantic-ai-agent": {
+    "verifiedAt": "2026-09-26"
+  },
+  "vercel-ai-sdk-chat": {
+    "verifiedAt": "2026-09-26"
+  }
+}

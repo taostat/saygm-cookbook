@@ -1,0 +1,19 @@
+{
+  "$schema": "./node_modules/oxlint/configuration_schema.json",
+  "plugins": ["typescript", "import", "unicorn", "oxc", "vitest"],
+  "categories": {
+    "correctness": "error",
+    "suspicious": "error",
+    "perf": "error"
+  },
+  "rules": {
+    "import/no-relative-parent-imports": "error",
+    "import/no-unassigned-import": [
+      "error",
+      {
+        "allow": ["@saygm-examples/shared/install-meter"]
+      }
+    ]
+  },
+  "ignorePatterns": ["node_modules", ".venv"]
+}

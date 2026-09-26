@@ -1,0 +1,47 @@
+[project]
+name = "saygm-examples"
+version = "0.1.0"
+requires-python = ">=3.13"
+dependencies = []
+
+[dependency-groups]
+dev = ["pytest==9.1.1", "ruff==0.16.9", "ty==0.0.84", "saygm-examples-shared"]
+
+[tool.uv]
+package = false
+exclude-newer = "24 hours"
+
+[tool.uv.workspace]
+members = ["shared/python", "examples/openai-agents-sdk", "examples/pydantic-ai-agent"]
+
+[tool.uv.sources]
+saygm-examples-shared = { workspace = true }
+
+[tool.ruff]
+line-length = 100
+target-version = "py313"
+extend-exclude = ["node_modules"]
+
+[tool.ruff.lint]
+select = ["ALL"]
+ignore = [
+  "COM812", # conflicts with the formatter
+  "T201", # examples print their output
+  "INP001", # examples are scripts, not packages
+  "CPY001", # the repository LICENSE covers every file
+]
+
+[tool.ruff.lint.per-file-ignores]
+"**/tests/**" = ["S101", "PLR2004", "D"]
+# Region markers sit between the helper import and the imports a tutorial shows.
+"examples/**" = ["I001", "D"]
+
+[tool.ruff.lint.pydocstyle]
+convention = "google"
+
+[tool.pytest.ini_options]
+testpaths = ["shared/python/tests"]
+addopts = ["--strict-markers", "-W", "error"]
+
+[tool.ty.rules]
+possibly-unresolved-reference = "error"

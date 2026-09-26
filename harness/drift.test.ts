@@ -1,0 +1,181 @@
+import { describe, expect, it } from "vitest";
+import { parseCatalog } from "#harness/catalog.ts";
+import { checkDrift, scanPython, scanTypeScript } from "#harness/drift.ts";
+
+const rates = { input: 1, output: 1, cache_read: 1, cache_write: 1 };
+const catalog = parseCatalog({
+  base_urls: { openai: "https://api.saygm.com/v1", anthropic: "https://api.saygm.com" },
+  roles: {
+    chat_cheap: { model: "qwen3.6-35b-a3b", shape: "chat.completions", tools: false },
+    claude: { model: "claude-haiku-4-5", shape: "messages", tools: true },
+  },
+  models: {
+    "qwen3.6-35b-a3b": {
+      api_shapes: ["chat.completions"],
+      available: true,
+      tools: true,
+      pricing: {},
+      budget_rates: rates,
+    },
+    "claude-haiku-4-5": {
+      api_shapes: ["messages"],
+      available: true,
+      tools: true,
+      pricing: {},
+      budget_rates: rates,
+    },
+  },
+});
+
+describe("scanTypeScript", () => {
+  it("finds string literals, template text and modelId roles", () => {
+    const facts = scanTypeScript(
+      [
+        'const url = "https://api.saygm.com/v1";',
+        "const t = `https://api.saygm.com/v1/${path}`;",
+        'const model = modelId("chat_cheap");',
+        "const other = modelId(role);",
+      ].join("\n"),
+      "main.ts",
+    );
+    expect(facts.strings).toEqual(
+      expect.arrayContaining([
+        { value: "https://api.saygm.com/v1", line: 1 },
+        { value: "https://api.saygm.com/v1/", line: 2 },
+      ]),
+    );
+    expect(facts.roles).toEqual([
+      { role: "chat_cheap", line: 3 },
+      { role: null, line: 4 },
+    ]);
+  });
+
+  it("ignores comments", () => {
+    expect(scanTypeScript('// "claude-haiku-4-5"\nconst a = 1;\n', "main.ts").strings).toEqual([]);
+  });
+
+  it("reports a syntax error with the file name", () => {
+    expect(() => scanTypeScript("const = ;", "broken.ts")).toThrow(/broken\.ts/);
+  });
+});
+
+describe("scanPython", () => {
+  it("finds string literals and model_id roles", async () => {
+    const facts = await scanPython(
+      [
+        "# claude-haiku-4-5 in a comment",
+        'BASE = "https://api.saygm.com/v1"',
+        'model = model_id("claude")',
+        "other = model_id(role)",
+        'f"{x}https://api.saygm.com"',
+      ].join("\n"),
+      "main.py",
+    );
+    expect(facts.strings).toEqual(
+      expect.arrayContaining([
+        { value: "https://api.saygm.com/v1", line: 2 },
+        { value: "https://api.saygm.com", line: 5 },
+      ]),
+    );
+    expect(facts.strings.map((s) => s.value)).not.toContain("claude-haiku-4-5 in a comment");
+    expect(facts.roles).toEqual([
+      { role: "claude", line: 3 },
+      { role: null, line: 4 },
+    ]);
+  });
+
+  it("reports a syntax error with the file name", async () => {
+    await expect(scanPython("def (:\n", "broken.py")).rejects.toThrow(/broken\.py/);
+  });
+});
+
+const facts = (strings: Array<[string, number]>, roles: Array<[string | null, number]> = []) => ({
+  file: "examples/x/main.ts",
+  strings: strings.map(([value, line]) => ({ value, line })),
+  roles: roles.map(([role, line]) => ({ role, line })),
+});
+
+describe("checkDrift", () => {
+  it("passes for catalog base URLs and known roles", () => {
+    expect(
+      checkDrift(catalog, [
+        facts(
+          [
+            ["https://api.saygm.com/v1", 1],
+            ["https://api.saygm.com", 2],
+          ],
+          [["claude", 3]],
+        ),
+      ]),
+    ).toEqual([]);
+  });
+
+  it("flags a hard-coded model id", () => {
+    expect(checkDrift(catalog, [facts([["claude-haiku-4-5", 7]])])).toEqual([
+      'examples/x/main.ts:7: hard-coded model id "claude-haiku-4-5"; use a model role from catalog.json',
+    ]);
+  });
+
+  it("flags a base URL that is not in the catalog", () => {
+    for (const url of [
+      "https://api.saygm.com/v1/",
+      "https://api.saygm.com/v1/messages",
+      "http://api.saygm.com/v1",
+    ]) {
+      expect(checkDrift(catalog, [facts([[url, 2]])])).toEqual([
+        `examples/x/main.ts:2: base URL "${url}" is not one of https://api.saygm.com/v1, https://api.saygm.com`,
+      ]);
+    }
+  });
+
+  it("flags an unknown role and a role that is not a string literal", () => {
+    expect(
+      checkDrift(catalog, [
+        facts(
+          [],
+          [
+            ["gemini", 4],
+            [null, 5],
+          ],
+        ),
+      ]),
+    ).toEqual([
+      'examples/x/main.ts:4: unknown model role "gemini"',
+      "examples/x/main.ts:5: model role must be a string literal so it can be checked",
+    ]);
+  });
+});
+
+describe("checkDrift URL and model rules", () => {
+  it("flags any URL that is not a SayGM base URL", () => {
+    expect(checkDrift(catalog, [facts([["https://api.openai.com/v1", 3]])])).toEqual([
+      'examples/x/main.ts:3: base URL "https://api.openai.com/v1" is not one of https://api.saygm.com/v1, https://api.saygm.com',
+    ]);
+  });
+
+  it("flags a model id from a known maker even after it leaves the catalog", () => {
+    expect(
+      checkDrift(catalog, [
+        facts([
+          ["claude-3-haiku", 4],
+          ["qwen2.5-72b", 5],
+        ]),
+      ]),
+    ).toEqual([
+      'examples/x/main.ts:4: hard-coded model id "claude-3-haiku"; use a model role from catalog.json',
+      'examples/x/main.ts:5: hard-coded model id "qwen2.5-72b"; use a model role from catalog.json',
+    ]);
+  });
+
+  it("allows ordinary hyphenated strings", () => {
+    expect(
+      checkDrift(catalog, [
+        facts([
+          ["get-weather", 1],
+          ["light rain", 2],
+          ["text/event-stream", 3],
+        ]),
+      ]),
+    ).toEqual([]);
+  });
+});
