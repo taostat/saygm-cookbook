@@ -77,6 +77,13 @@ export function scanPython(source: string, file: string, python = "python3"): Pr
 const URL_PREFIX = /^https?:\/\//;
 // Template prefixes such as `http://127.0.0.1:` end before the port, so match by pattern; "@" never.
 const LOCAL_URL = /^http:\/\/(?:localhost|127\.0\.0\.1)(?::\d*)?(?:[/?#][^@]*)?$/;
+const BARE_SCHEME = /^https?:\/\/$/;
+const PREFIX_WITH_HOST = /^https?:\/\/[^/\s]+\//;
+const SAYGM_HOST = /(?:^|\.)saygm\.com$/;
+
+function isSaygmPrefix(prefix: string): boolean {
+  return SAYGM_HOST.test(new URL(prefix).hostname.replace(/\.$/, ""));
+}
 const MODEL_ID_SHAPE = /^[a-z][a-z0-9.]*(?:-[a-z0-9.]+)+$/;
 
 function makerPrefix(id: string): string {
@@ -87,7 +94,43 @@ function modelProblem(value: string, catalog: Catalog, makers: Set<string>): boo
   return value in catalog.models || (MODEL_ID_SHAPE.test(value) && makers.has(makerPrefix(value)));
 }
 
-export function checkDrift(catalog: Catalog, sources: SourceFacts[]): string[] {
+/** Reads the URL prefixes a checks.json allows beyond the SayGM base URLs, such as a store API. */
+export function externalUrls(checks: unknown, file: string): string[] {
+  const declared = (checks as { external_urls?: unknown } | null)?.external_urls;
+  if (declared === undefined) {
+    return [];
+  }
+  if (
+    !Array.isArray(declared) ||
+    !declared.every((prefix) => typeof prefix === "string" && PREFIX_WITH_HOST.test(prefix))
+  ) {
+    throw new Error(
+      `${file}: external_urls must be a list of URL prefixes with a host and a "/" after it`,
+    );
+  }
+  const prefixes = declared as string[];
+  const saygm = prefixes.find(isSaygmPrefix);
+  if (saygm !== undefined) {
+    throw new Error(
+      `${file}: external_urls cannot include SayGM (${saygm}); use a catalog base URL instead`,
+    );
+  }
+  return prefixes;
+}
+
+function allowedUrl(value: string, baseUrls: string[], external: string[]): boolean {
+  return (
+    BARE_SCHEME.test(value) ||
+    baseUrls.includes(value) ||
+    external.some((prefix) => value.startsWith(prefix))
+  );
+}
+
+export function checkDrift(
+  catalog: Catalog,
+  sources: SourceFacts[],
+  external: string[] = [],
+): string[] {
   const baseUrls = Object.values(catalog.base_urls);
   const makers = new Set(Object.keys(catalog.models).map(makerPrefix));
   const problems: string[] = [];
@@ -97,7 +140,11 @@ export function checkDrift(catalog: Catalog, sources: SourceFacts[]): string[] {
         problems.push(
           `${file}:${line}: hard-coded model id "${value}"; use a model role from catalog.json`,
         );
-      } else if (URL_PREFIX.test(value) && !LOCAL_URL.test(value) && !baseUrls.includes(value)) {
+      } else if (
+        URL_PREFIX.test(value) &&
+        !LOCAL_URL.test(value) &&
+        !allowedUrl(value, baseUrls, external)
+      ) {
         problems.push(`${file}:${line}: base URL "${value}" is not one of ${baseUrls.join(", ")}`);
       }
     }

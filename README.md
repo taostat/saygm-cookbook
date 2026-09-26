@@ -6,13 +6,14 @@ Runnable recipes for building with Claude, GPT and open models on one SayGM key.
 
 ## Recipes
 
-| Recipe                                                      | Language   | Tutorial                                                                      | Folder                                                                      |
-| ----------------------------------------------------------- | ---------- | ----------------------------------------------------------------------------- | --------------------------------------------------------------------------- |
-| An AI agent with tools on Claude, using the Anthropic SDK   | Python     | [Read](https://saygm.com/developers/tutorials/build-ai-agent-claude-python)   | [`build-ai-agent-claude-python`](examples/build-ai-agent-claude-python)     |
-| A support agent that hands refunds and hard cases to Claude | Python     | [Read](https://saygm.com/developers/tutorials/customer-support-agent)         | [`customer-support-agent`](examples/customer-support-agent)                 |
-| OpenAI Agents SDK agents on GPT and on open models          | Python     | [Read](https://saygm.com/developers/tutorials/openai-agents-sdk-other-models) | [`openai-agents-sdk-other-models`](examples/openai-agents-sdk-other-models) |
-| One Pydantic AI agent on open, GPT and Claude models        | Python     | [Read](https://saygm.com/developers/tutorials/pydantic-ai-any-model)          | [`pydantic-ai-any-model`](examples/pydantic-ai-any-model)                   |
-| A website chatbot with a streaming reply                    | TypeScript | [Read](https://saygm.com/developers/tutorials/vercel-ai-sdk-website-chatbot)  | [`vercel-ai-sdk-website-chatbot`](examples/vercel-ai-sdk-website-chatbot)   |
+| Recipe                                                       | Language   | Tutorial                                                                      | Folder                                                                      |
+| ------------------------------------------------------------ | ---------- | ----------------------------------------------------------------------------- | --------------------------------------------------------------------------- |
+| An AI agent with tools on Claude, using the Anthropic SDK    | Python     | [Read](https://saygm.com/developers/tutorials/build-ai-agent-claude-python)   | [`build-ai-agent-claude-python`](examples/build-ai-agent-claude-python)     |
+| A support agent that hands refunds and hard cases to Claude  | Python     | [Read](https://saygm.com/developers/tutorials/customer-support-agent)         | [`customer-support-agent`](examples/customer-support-agent)                 |
+| OpenAI Agents SDK agents on GPT and on open models           | Python     | [Read](https://saygm.com/developers/tutorials/openai-agents-sdk-other-models) | [`openai-agents-sdk-other-models`](examples/openai-agents-sdk-other-models) |
+| One Pydantic AI agent on open, GPT and Claude models         | Python     | [Read](https://saygm.com/developers/tutorials/pydantic-ai-any-model)          | [`pydantic-ai-any-model`](examples/pydantic-ai-any-model)                   |
+| A Shopify store assistant that searches the catalog over UCP | Python     | [Read](https://saygm.com/developers/tutorials/shopify-store-assistant)        | [`shopify-store-assistant`](examples/shopify-store-assistant)               |
+| A website chatbot with a streaming reply                     | TypeScript | [Read](https://saygm.com/developers/tutorials/vercel-ai-sdk-website-chatbot)  | [`vercel-ai-sdk-website-chatbot`](examples/vercel-ai-sdk-website-chatbot)   |
 
 ## Quickstart
 

@@ -89,6 +89,25 @@ jobs:
             snippets/status.json
           retention-days: 7
 
+  shopify-surface:
+    name: Check the Shopify UCP surface and pinned profile
+    if: github.event_name == 'schedule' || github.event_name == 'pull_request'
+    runs-on: ubuntu-24.04
+    timeout-minutes: 10
+    permissions:
+      contents: read # check out the example
+    steps:
+      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
+        with:
+          persist-credentials: false
+      - uses: astral-sh/setup-uv@c18668ad3cf93ea998bef934396af7bb5c839dc7 # v10.2.0
+        with:
+          version: 0.12.19
+          enable-cache: false
+      - name: Compare the store's UCP tools and the pinned profile with the committed code
+        working-directory: examples/shopify-store-assistant
+        run: uv run --locked check_surface.py
+
   publish:
     name: Commit the verified dates
     needs: live

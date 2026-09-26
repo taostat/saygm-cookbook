@@ -1,0 +1,10 @@
+{
+  "facts": {
+    "tool_calls": { "min": 1 },
+    "catalog_titles": { "min": 1 },
+    "title_in_answer": { "equals": true },
+    "policy_tool_calls": { "min": 1 },
+    "claude_tool_calls": { "min": 1 }
+  },
+  "external_urls": ["https://cdn.jsdelivr.net/gh/taostat/saygm-cookbook@"]
+}
