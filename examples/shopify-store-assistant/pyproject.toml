@@ -1,0 +1,17 @@
+[project]
+name = "saygm-cookbook-shopify-store-assistant"
+version = "0.1.0"
+description = "A store assistant for a public Shopify store over UCP, running on SayGM"
+requires-python = ">=3.13"
+dependencies = [
+  "httpx2==2.13.1",
+  "mcp==2.2.0",
+  "pydantic-ai-slim[anthropic,openai]==2.50.0",
+  "saygm-cookbook-shared",
+]
+
+[dependency-groups]
+dev = ["jsonschema==4.26.0"]
+
+[tool.uv.sources]
+saygm-cookbook-shared = { workspace = true }

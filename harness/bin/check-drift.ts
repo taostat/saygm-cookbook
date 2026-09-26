@@ -1,7 +1,7 @@
 import { join } from "node:path";
 import { parseCatalog } from "#harness/catalog.ts";
 import { checkCommands, readManifest } from "#harness/commands.ts";
-import { checkDrift, scanPython, scanTypeScript } from "#harness/drift.ts";
+import { checkDrift, externalUrls, scanPython, scanTypeScript } from "#harness/drift.ts";
 import { exampleSlugs, exampleSources, readJson } from "#harness/examples.ts";
 import { extractRegions } from "#harness/extract.ts";
 
@@ -18,7 +18,13 @@ async function checkExample(slug: string): Promise<string[]> {
       file.endsWith(".py") ? scanPython(source, file) : scanTypeScript(source, file),
     ),
   );
-  problems.push(...checkDrift(catalog, sources));
+  const checksPath = `examples/${slug}/checks.json`;
+  try {
+    const external = externalUrls(readJson(join(repoRoot, checksPath)), checksPath);
+    problems.push(...checkDrift(catalog, sources, external));
+  } catch (error) {
+    problems.push(error instanceof Error ? error.message : String(error));
+  }
 
   const commandsPath = `examples/${slug}/${COMMANDS_FILE}`;
   const commands = files.find(({ file }) => file === commandsPath);

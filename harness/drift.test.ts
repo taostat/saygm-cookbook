@@ -1,6 +1,6 @@
 import { describe, expect, it } from "vitest";
 import { parseCatalog } from "#harness/catalog.ts";
-import { checkDrift, scanPython, scanTypeScript } from "#harness/drift.ts";
+import { checkDrift, externalUrls, scanPython, scanTypeScript } from "#harness/drift.ts";
 
 const rates = { input: 1, output: 1, cache_read: 1, cache_write: 1 };
 const catalog = parseCatalog({
@@ -206,5 +206,74 @@ describe("checkDrift URL and model rules", () => {
         ]),
       ]),
     ).toEqual([]);
+  });
+});
+
+describe("checkDrift external URLs", () => {
+  const profile = "https://cdn.jsdelivr.net/gh/taostat/saygm-cookbook@v1/profile.json";
+
+  it("allows a URL under a prefix the example declares", () => {
+    expect(
+      checkDrift(catalog, [facts([[profile, 1]])], ["https://cdn.jsdelivr.net/gh/taostat/"]),
+    ).toEqual([]);
+  });
+
+  it("still flags a URL outside the declared prefixes", () => {
+    expect(
+      checkDrift(
+        catalog,
+        [facts([["https://api.openai.com/v1", 2]])],
+        ["https://cdn.jsdelivr.net/"],
+      ),
+    ).toEqual([
+      'examples/x/main.ts:2: base URL "https://api.openai.com/v1" is not one of https://api.saygm.com/v1, https://api.saygm.com',
+    ]);
+  });
+
+  it("allows a bare scheme that code joins to a host from a variable", () => {
+    expect(checkDrift(catalog, [facts([["https://", 1]])])).toEqual([]);
+  });
+});
+
+describe("externalUrls", () => {
+  it("reads the declared prefixes", () => {
+    expect(externalUrls({ external_urls: ["https://store.example/"] }, "c.json")).toEqual([
+      "https://store.example/",
+    ]);
+    expect(
+      externalUrls({ facts: {}, external_urls: ["https://cdn.jsdelivr.net/gh/"] }, "checks.json"),
+    ).toEqual(["https://cdn.jsdelivr.net/gh/"]);
+  });
+
+  it("returns none when checks.json declares none", () => {
+    expect(externalUrls({ facts: {} }, "checks.json")).toEqual([]);
+  });
+
+  it("rejects a prefix that does not end its host, which a look-alike host would match", () => {
+    expect(() =>
+      externalUrls({ external_urls: ["https://cdn.jsdelivr.net"] }, "checks.json"),
+    ).toThrow(/checks\.json: external_urls/);
+  });
+
+  it("rejects a SayGM prefix, since SayGM URLs must match a catalog base URL exactly", () => {
+    for (const prefix of [
+      "https://api.saygm.com/",
+      "https://saygm.com/v1",
+      "http://x.saygm.com/",
+      "https://API.SAYGM.COM/",
+      "https://saygm.com./",
+    ]) {
+      expect(() => externalUrls({ external_urls: [prefix] }, "checks.json")).toThrow(
+        /checks\.json: external_urls cannot include SayGM/,
+      );
+    }
+  });
+
+  it("rejects a prefix without a host, which would allow every URL", () => {
+    for (const bad of [["https://"], ["cdn.jsdelivr.net"], "https://x.dev/", [1]]) {
+      expect(() => externalUrls({ external_urls: bad }, "checks.json")).toThrow(
+        /checks\.json: external_urls/,
+      );
+    }
   });
 });

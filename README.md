@@ -15,6 +15,7 @@ against the live SayGM API before the page shows it.
 | [`customer-support-agent`](examples/customer-support-agent)                 | Python     | [Build a customer support agent](https://saygm.com/developers/tutorials/customer-support-agent)                                     |
 | [`openai-agents-sdk-other-models`](examples/openai-agents-sdk-other-models) | Python     | [OpenAI Agents SDK with other models](https://saygm.com/developers/tutorials/openai-agents-sdk-other-models)                        |
 | [`pydantic-ai-any-model`](examples/pydantic-ai-any-model)                   | Python     | [Pydantic AI with Claude, GPT and open models](https://saygm.com/developers/tutorials/pydantic-ai-any-model)                        |
+| [`shopify-store-assistant`](examples/shopify-store-assistant)               | Python     | [Build a Shopify store assistant on UCP](https://saygm.com/developers/tutorials/shopify-store-assistant)                            |
 | [`vercel-ai-sdk-website-chatbot`](examples/vercel-ai-sdk-website-chatbot)   | TypeScript | [Build an AI chatbot for your website with the Vercel AI SDK](https://saygm.com/developers/tutorials/vercel-ai-sdk-website-chatbot) |
 
 ## Run an example
