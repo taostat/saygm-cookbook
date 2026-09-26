@@ -66,8 +66,13 @@ jobs:
           SAYGM_API_KEY: ${{ secrets.SAYGM_API_KEY }}
           SAYGM_RUN_CAP_USD: "0.50"
           SLUGS: ${{ steps.select.outputs.slugs }}
+          PR_AUTHOR: ${{ github.event.pull_request.user.login }}
         run: |
           if [ -z "$SAYGM_API_KEY" ]; then
+            if [ "$PR_AUTHOR" = "dependabot[bot]" ]; then
+              echo "::notice::Dependabot pull requests have no SayGM key, so the live run is skipped. The offline checks still run, and the next weekly or catalog run after merge tests the update live."
+              exit 0
+            fi
             echo "::error::SAYGM_API_KEY is not set for this repository."
             exit 1
           fi
