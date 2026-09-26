@@ -1,0 +1,6 @@
+{
+  "facts": {
+    "open_model_chunks": { "min": 2 },
+    "claude_text": { "equals": true }
+  }
+}

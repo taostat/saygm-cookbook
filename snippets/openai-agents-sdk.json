@@ -1,0 +1,30 @@
+{
+  "slug": "openai-agents-sdk",
+  "regions": {
+    "install": {
+      "lang": "bash",
+      "file": "examples/openai-agents-sdk/commands.sh",
+      "code": "pip install openai-agents==0.22.3"
+    },
+    "run": {
+      "lang": "bash",
+      "file": "examples/openai-agents-sdk/commands.sh",
+      "code": "python main.py"
+    },
+    "setup": {
+      "lang": "python",
+      "file": "examples/openai-agents-sdk/main.py",
+      "code": "import os\n\nfrom agents import Agent, Runner, function_tool, set_default_openai_client, set_tracing_disabled\nfrom openai import AsyncOpenAI\n\nclient = AsyncOpenAI(base_url=\"https://api.saygm.com/v1\", api_key=os.environ[\"SAYGM_API_KEY\"])\nset_default_openai_client(client, use_for_tracing=False)\nset_tracing_disabled(disabled=True)"
+    },
+    "tool": {
+      "lang": "python",
+      "file": "examples/openai-agents-sdk/main.py",
+      "code": "@function_tool\ndef get_weather(city: str) -> str:\n    \"\"\"Get the current weather for a city.\"\"\"\n    return f\"{city}: 18 C and light rain\""
+    },
+    "agent": {
+      "lang": "python",
+      "file": "examples/openai-agents-sdk/main.py",
+      "code": "agent = Agent(\n    name=\"Weather assistant\",\n    instructions=\"Answer weather questions. Use the get_weather tool for current conditions.\",\n    model=\"gpt-5.4-nano\",\n    tools=[get_weather],\n)\n\nresult = Runner.run_sync(agent, \"What is the weather in Paris? Should I take an umbrella?\")\nprint(result.final_output)"
+    }
+  }
+}

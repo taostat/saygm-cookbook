@@ -1,0 +1,35 @@
+{
+  "slug": "vercel-ai-sdk-chat",
+  "regions": {
+    "install": {
+      "lang": "bash",
+      "file": "examples/vercel-ai-sdk-chat/commands.sh",
+      "code": "npm install @ai-sdk/anthropic@4.0.63 @ai-sdk/openai@4.0.75 ai@7.0.114"
+    },
+    "run": {
+      "lang": "bash",
+      "file": "examples/vercel-ai-sdk-chat/commands.sh",
+      "code": "node main.ts"
+    },
+    "setup": {
+      "lang": "typescript",
+      "file": "examples/vercel-ai-sdk-chat/main.ts",
+      "code": "import { createAnthropic } from \"@ai-sdk/anthropic\";\nimport { createOpenAI } from \"@ai-sdk/openai\";\nimport { streamText } from \"ai\";\n\nconst apiKey = process.env.SAYGM_API_KEY;\nif (!apiKey) {\n  throw new Error(\"Set SAYGM_API_KEY to your SayGM key.\");\n}\n\nconst saygm = createOpenAI({ baseURL: \"https://api.saygm.com/v1\", apiKey });"
+    },
+    "stream": {
+      "lang": "typescript",
+      "file": "examples/vercel-ai-sdk-chat/main.ts",
+      "code": "const result = streamText({\n  model: saygm.chat(\"deepseek-v4.1-flash\"),\n  system: \"You are a concise assistant.\",\n  prompt: \"In three short sentences, explain what a streaming API response is.\",\n  maxOutputTokens: 300,\n});"
+    },
+    "print": {
+      "lang": "typescript",
+      "file": "examples/vercel-ai-sdk-chat/main.ts",
+      "code": "for await (const text of result.textStream) {\n  process.stdout.write(text);\n}\nprocess.stdout.write(\"\\n\");"
+    },
+    "claude": {
+      "lang": "typescript",
+      "file": "examples/vercel-ai-sdk-chat/main.ts",
+      "code": "const anthropic = createAnthropic({ baseURL: \"https://api.saygm.com/v1\", apiKey });\n\nconst claude = streamText({\n  model: anthropic(\"claude-haiku-4-5\"),\n  prompt: \"In one sentence, say hello to a developer trying SayGM.\",\n  maxOutputTokens: 200,\n});\n\nfor await (const text of claude.textStream) {\n  process.stdout.write(text);\n}\nprocess.stdout.write(\"\\n\");"
+    }
+  }
+}
