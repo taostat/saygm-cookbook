@@ -1,14 +1,87 @@
 {
-  "claude-tools": {
-    "verifiedAt": "2026-09-26"
+  "build-ai-agent-claude-python": {
+    "verifiedAt": "2026-09-26",
+    "usage": {
+      "claude-haiku-4-5": {
+        "input_tokens": 2224,
+        "output_tokens": 201,
+        "cache_read_input_tokens": 0,
+        "cache_creation_input_tokens": 0
+      }
+    }
   },
-  "openai-agents-sdk": {
-    "verifiedAt": "2026-09-26"
+  "customer-support-agent": {
+    "verifiedAt": "2026-09-26",
+    "usage": {
+      "claude-haiku-4-5": {
+        "input_tokens": 2048,
+        "output_tokens": 231,
+        "cache_read_input_tokens": 0,
+        "cache_creation_input_tokens": 0
+      },
+      "deepseek-v4-flash-0731": {
+        "input_tokens": 3143,
+        "output_tokens": 478,
+        "cache_read_input_tokens": 0,
+        "cache_creation_input_tokens": 0
+      }
+    }
   },
-  "pydantic-ai-agent": {
-    "verifiedAt": "2026-09-26"
+  "openai-agents-sdk-other-models": {
+    "verifiedAt": "2026-09-26",
+    "usage": {
+      "deepseek-v4-flash-0731": {
+        "input_tokens": 728,
+        "output_tokens": 135,
+        "cache_read_input_tokens": 0,
+        "cache_creation_input_tokens": 0
+      },
+      "gpt-5.4-nano": {
+        "input_tokens": 201,
+        "output_tokens": 44,
+        "cache_read_input_tokens": 0,
+        "cache_creation_input_tokens": 0
+      }
+    }
   },
-  "vercel-ai-sdk-chat": {
-    "verifiedAt": "2026-09-26"
+  "pydantic-ai-any-model": {
+    "verifiedAt": "2026-09-26",
+    "usage": {
+      "claude-haiku-4-5": {
+        "input_tokens": 1268,
+        "output_tokens": 239,
+        "cache_read_input_tokens": 0,
+        "cache_creation_input_tokens": 0
+      },
+      "deepseek-v4-flash-0731": {
+        "input_tokens": 697,
+        "output_tokens": 141,
+        "cache_read_input_tokens": 0,
+        "cache_creation_input_tokens": 0
+      },
+      "gpt-5.4-nano": {
+        "input_tokens": 175,
+        "output_tokens": 67,
+        "cache_read_input_tokens": 0,
+        "cache_creation_input_tokens": 0
+      }
+    }
+  },
+  "vercel-ai-sdk-website-chatbot": {
+    "verifiedAt": "2026-09-26",
+    "usage": {
+      "claude-haiku-4-5": {
+        "input_tokens": 34,
+        "output_tokens": 40,
+        "cache_read_input_tokens": 0,
+        "cache_creation_input_tokens": 0
+      },
+      "deepseek-v4-flash-0731": {
+        "input_tokens": 31,
+        "output_tokens": 19,
+        "cache_read_input_tokens": 0,
+        "cache_creation_input_tokens": 0
+      }
+    }
   }
 }

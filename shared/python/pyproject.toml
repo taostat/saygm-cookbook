@@ -1,7 +1,7 @@
 [project]
-name = "saygm-examples-shared"
+name = "saygm-cookbook-shared"
 version = "0.1.0"
-description = "Model roles and run reporting shared by the SayGM examples"
+description = "Model roles and run reporting shared by the SayGM cookbook examples"
 requires-python = ">=3.13"
 dependencies = ["httpx2==2.13.1"]
 

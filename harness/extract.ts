@@ -1,4 +1,4 @@
-export type Lang = "typescript" | "python" | "bash";
+export type Lang = "typescript" | "javascript" | "python" | "bash" | "html";
 
 export interface Region {
   lang: Lang;
@@ -15,8 +15,20 @@ export class ExtractError extends Error {
   override name = "ExtractError";
 }
 
-const COMMENT: Record<Lang, string> = { typescript: "//", python: "#", bash: "#" };
-const EXTENSIONS: Record<string, Lang> = { ".ts": "typescript", ".py": "python", ".sh": "bash" };
+const COMMENT: Record<Lang, { open: string; close: string }> = {
+  typescript: { open: "//", close: "" },
+  javascript: { open: "//", close: "" },
+  python: { open: "#", close: "" },
+  bash: { open: "#", close: "" },
+  html: { open: "<!--", close: "-->" },
+};
+const EXTENSIONS: Record<string, Lang> = {
+  ".ts": "typescript",
+  ".js": "javascript",
+  ".py": "python",
+  ".sh": "bash",
+  ".html": "html",
+};
 const ROLE_HELPER = /\b(?:modelId|model_id)\s*\(/;
 const ROLE_CALL = /\b(?:modelId|model_id)\("([^"]*)"\)/g;
 const REGION_ID = /^[a-z0-9]+(?:-[a-z0-9]+)*$/;
@@ -32,12 +44,16 @@ export function langForFile(file: string): Lang {
 
 type Marker = { kind: "open"; id: string } | { kind: "close" };
 
-function parseMarker(line: string, comment: string, where: string): Marker | null {
+function parseMarker(
+  line: string,
+  comment: { open: string; close: string },
+  where: string,
+): Marker | null {
   const trimmed = line.trim();
-  if (!trimmed.startsWith(comment)) {
+  if (!trimmed.startsWith(comment.open) || !trimmed.endsWith(comment.close)) {
     return null;
   }
-  const body = trimmed.slice(comment.length).trim();
+  const body = trimmed.slice(comment.open.length, trimmed.length - comment.close.length).trim();
   if (body === "endregion") {
     return { kind: "close" };
   }
@@ -48,7 +64,7 @@ function parseMarker(line: string, comment: string, where: string): Marker | nul
   const id = match?.[1];
   if (id === undefined || !REGION_ID.test(id)) {
     throw new ExtractError(
-      `${where}: malformed marker "${trimmed}"; use "${comment} region: <id>" with a kebab-case id`,
+      `${where}: malformed marker "${trimmed}"; use "${comment.open} region: <id>${comment.close ? ` ${comment.close}` : ""}" with a kebab-case id`,
     );
   }
   return { kind: "open", id };

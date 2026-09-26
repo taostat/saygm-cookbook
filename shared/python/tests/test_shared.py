@@ -2,7 +2,7 @@ import json
 from pathlib import Path
 
 import pytest
-from saygm_examples_shared import CatalogError, model_id, report_fact
+from saygm_cookbook_shared import CatalogError, model_id, report_fact
 
 CATALOG = {
     "roles": {

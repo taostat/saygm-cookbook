@@ -1,0 +1,16 @@
+{
+  "name": "saygm-cookbook-vercel-ai-sdk-website-chatbot",
+  "version": "0.1.0",
+  "private": true,
+  "description": "A website chatbot with a streaming route and page, built on the Vercel AI SDK and SayGM",
+  "type": "module",
+  "scripts": {
+    "start": "node main.ts"
+  },
+  "dependencies": {
+    "@ai-sdk/anthropic": "4.0.63",
+    "@ai-sdk/openai": "4.0.75",
+    "@saygm-cookbook/shared": "workspace:*",
+    "ai": "7.0.114"
+  }
+}

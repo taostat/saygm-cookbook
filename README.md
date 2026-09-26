@@ -1,6 +1,6 @@
 <p align="center"><a href="https://saygm.com"><img src=".github/assets/saygm-logo.svg" alt="SayGM" width="96" height="96"></a></p>
 
-# SayGM examples
+# SayGM cookbook
 
 Runnable examples for the tutorials at [saygm.com/developers/tutorials](https://saygm.com/developers/tutorials). SayGM
 is an inference gateway: point the OpenAI, Anthropic or Vercel AI SDK at it and use one key for
@@ -9,12 +9,13 @@ Claude, GPT and open models.
 Every code block on a tutorial page comes from a file in this repository, and CI runs that file
 against the live SayGM API before the page shows it.
 
-| Example                                             | Language   | Tutorial                                                                                              |
-| --------------------------------------------------- | ---------- | ----------------------------------------------------------------------------------------------------- |
-| [`claude-tools`](examples/claude-tools)             | TypeScript | [Claude with tools and structured output](https://saygm.com/developers/tutorials/claude-tools)        |
-| [`vercel-ai-sdk-chat`](examples/vercel-ai-sdk-chat) | TypeScript | [Streaming chat with the Vercel AI SDK](https://saygm.com/developers/tutorials/vercel-ai-sdk-chat)    |
-| [`openai-agents-sdk`](examples/openai-agents-sdk)   | Python     | [Agent with tools on the OpenAI Agents SDK](https://saygm.com/developers/tutorials/openai-agents-sdk) |
-| [`pydantic-ai-agent`](examples/pydantic-ai-agent)   | Python     | [Pydantic AI agent](https://saygm.com/developers/tutorials/pydantic-ai-agent)                         |
+| Example                                                                     | Language   | Tutorial                                                                                                                            |
+| --------------------------------------------------------------------------- | ---------- | ----------------------------------------------------------------------------------------------------------------------------------- |
+| [`build-ai-agent-claude-python`](examples/build-ai-agent-claude-python)     | Python     | [How to build an AI agent with Claude in Python](https://saygm.com/developers/tutorials/build-ai-agent-claude-python)               |
+| [`customer-support-agent`](examples/customer-support-agent)                 | Python     | [Build a customer support agent](https://saygm.com/developers/tutorials/customer-support-agent)                                     |
+| [`openai-agents-sdk-other-models`](examples/openai-agents-sdk-other-models) | Python     | [OpenAI Agents SDK with other models](https://saygm.com/developers/tutorials/openai-agents-sdk-other-models)                        |
+| [`pydantic-ai-any-model`](examples/pydantic-ai-any-model)                   | Python     | [Pydantic AI with Claude, GPT and open models](https://saygm.com/developers/tutorials/pydantic-ai-any-model)                        |
+| [`vercel-ai-sdk-website-chatbot`](examples/vercel-ai-sdk-website-chatbot)   | TypeScript | [Build an AI chatbot for your website with the Vercel AI SDK](https://saygm.com/developers/tutorials/vercel-ai-sdk-website-chatbot) |
 
 ## Run an example
 
@@ -26,17 +27,17 @@ export SAYGM_API_KEY="your SayGM key"
 
 # TypeScript, from the repository root
 pnpm install
-(cd examples/claude-tools && pnpm start)
+(cd examples/vercel-ai-sdk-website-chatbot && pnpm start)
 
 # Python, from the repository root
-(cd examples/pydantic-ai-agent && uv run main.py)
+(cd examples/build-ai-agent-claude-python && uv run main.py)
 ```
 
 Each example picks its models by role from [`catalog.json`](catalog.json), for example `claude`
 or `chat_cheap`. To try another model, set `SAYGM_MODEL_<ROLE>`:
 
 ```bash
-(cd examples/claude-tools && SAYGM_MODEL_CLAUDE=claude-sonnet-5 pnpm start)
+(cd examples/build-ai-agent-claude-python && SAYGM_MODEL_CLAUDE=claude-sonnet-5 uv run main.py)
 ```
 
 ## Base URLs
@@ -54,7 +55,8 @@ models and the APIs each one serves is at `https://api.saygm.com/v1/models`.
 
 - **Catalog.** `pnpm sync-catalog` refreshes `catalog.json` from `/v1/models`: each model's API
   shapes, tool support and prices. The `roles` section names the model each example uses, and
-  every role is checked against the live catalog for the right API shape and tool support.
+  every role is checked against the live catalog for the right API shape, tool support and,
+  where a role asks for it, a confidential model.
 - **Drift check.** `pnpm check-drift` parses every example and fails on a hard-coded model id, an
   unknown role, or a URL that is not a base URL in `catalog.json`. It also checks that the install
   line in each `commands.sh` pins the same versions as the example's manifest, and that its run
@@ -64,7 +66,7 @@ models and the APIs each one serves is at `https://api.saygm.com/v1/models`.
   `snippets/<slug>.json`, which the tutorial pages render. Markers never appear in the output,
   and each `modelId("<role>")` becomes the model id CI ran, so a copied snippet runs as is.
   CI fails if the committed snippets are out of date.
-- **Metering.** Each example imports a meter (`@saygm-examples/shared/install-meter` in
+- **Metering.** Each example imports a meter (`@saygm-cookbook/shared/install-meter` in
   TypeScript, `meter_api_calls()` in Python) that sits outside the snippet regions. When the runner
   sets `SAYGM_REPORT_FILE`, it records every call to a SayGM generation endpoint, including
   retries, and the token usage the response reports. A call that ends without usage leaves its
@@ -74,8 +76,9 @@ models and the APIs each one serves is at `https://api.saygm.com/v1/models`.
   `--cap-usd` or `SAYGM_RUN_CAP_USD`), or a cost is unknown, the run fails and skips the examples
   left. Each example's `checks.json` states what must be true, for example that a tool was called
   or that the stream arrived in more than one chunk.
-- **Verified dates.** A green run records the date in `snippets/status.json`. Tutorial pages show
-  it as "verified on".
+- **Verified dates and usage.** A green run records the date and the tokens each model used in
+  `snippets/status.json`. Tutorial pages show the date as "verified on" and price the tokens at
+  live rates.
 
 The `examples` workflow runs the examples a pull request changes, every example when SayGM
 publishes a new catalog, and every example weekly. It needs a repository secret `SAYGM_API_KEY`

@@ -1,0 +1,8 @@
+{
+  "facts": {
+    "tool_calls": { "min": 1 },
+    "answered": { "equals": true },
+    "gpt_tool_calls": { "min": 1 },
+    "claude_tool_calls": { "min": 1 }
+  }
+}

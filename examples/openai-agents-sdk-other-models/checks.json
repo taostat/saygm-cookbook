@@ -1,0 +1,7 @@
+{
+  "facts": {
+    "gpt_tool_calls": { "min": 1 },
+    "open_model_tool_calls": { "min": 1 },
+    "both_answered": { "equals": true }
+  }
+}

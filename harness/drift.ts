@@ -75,6 +75,8 @@ export function scanPython(source: string, file: string, python = "python3"): Pr
 }
 
 const URL_PREFIX = /^https?:\/\//;
+// Template prefixes such as `http://127.0.0.1:` end before the port, so match by pattern; "@" never.
+const LOCAL_URL = /^http:\/\/(?:localhost|127\.0\.0\.1)(?::\d*)?(?:[/?#][^@]*)?$/;
 const MODEL_ID_SHAPE = /^[a-z][a-z0-9.]*(?:-[a-z0-9.]+)+$/;
 
 function makerPrefix(id: string): string {
@@ -95,7 +97,7 @@ export function checkDrift(catalog: Catalog, sources: SourceFacts[]): string[] {
         problems.push(
           `${file}:${line}: hard-coded model id "${value}"; use a model role from catalog.json`,
         );
-      } else if (URL_PREFIX.test(value) && !baseUrls.includes(value)) {
+      } else if (URL_PREFIX.test(value) && !LOCAL_URL.test(value) && !baseUrls.includes(value)) {
         problems.push(`${file}:${line}: base URL "${value}" is not one of ${baseUrls.join(", ")}`);
       }
     }

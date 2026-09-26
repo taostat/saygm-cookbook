@@ -5,7 +5,7 @@
   },
   "roles": {
     "chat_cheap": {
-      "model": "deepseek-v4.1-flash",
+      "model": "deepseek-v4-flash-0731",
       "shape": "chat.completions",
       "tools": true
     },
@@ -27,6 +27,7 @@
       ],
       "available": true,
       "tools": true,
+      "confidential": false,
       "pricing": {
         "input_per_mtok_ndollars": 8930000000,
         "output_per_mtok_ndollars": 44650000000,
@@ -47,6 +48,7 @@
       ],
       "available": true,
       "tools": true,
+      "confidential": false,
       "pricing": {
         "input_per_mtok_ndollars": 8930000000,
         "output_per_mtok_ndollars": 44650000000,
@@ -67,6 +69,7 @@
       ],
       "available": false,
       "tools": true,
+      "confidential": false,
       "pricing": {},
       "budget_rates": null
     },
@@ -76,6 +79,7 @@
       ],
       "available": true,
       "tools": true,
+      "confidential": false,
       "pricing": {
         "input_per_mtok_ndollars": 893000000,
         "output_per_mtok_ndollars": 4465000000,
@@ -96,6 +100,7 @@
       ],
       "available": true,
       "tools": true,
+      "confidential": false,
       "pricing": {
         "input_per_mtok_ndollars": 4465000000,
         "output_per_mtok_ndollars": 22325000000,
@@ -116,6 +121,7 @@
       ],
       "available": true,
       "tools": true,
+      "confidential": false,
       "pricing": {
         "input_per_mtok_ndollars": 4465000000,
         "output_per_mtok_ndollars": 22325000000,
@@ -136,6 +142,7 @@
       ],
       "available": true,
       "tools": true,
+      "confidential": false,
       "pricing": {
         "input_per_mtok_ndollars": 4465000000,
         "output_per_mtok_ndollars": 22325000000,
@@ -156,6 +163,7 @@
       ],
       "available": true,
       "tools": true,
+      "confidential": false,
       "pricing": {
         "input_per_mtok_ndollars": 3572000000,
         "output_per_mtok_ndollars": 17860000000,
@@ -176,6 +184,7 @@
       ],
       "available": true,
       "tools": true,
+      "confidential": false,
       "pricing": {
         "input_per_mtok_ndollars": 2679000000,
         "output_per_mtok_ndollars": 13395000000,
@@ -196,6 +205,7 @@
       ],
       "available": true,
       "tools": true,
+      "confidential": false,
       "pricing": {
         "input_per_mtok_ndollars": 1786000000,
         "output_per_mtok_ndollars": 8930000000,
@@ -216,6 +226,7 @@
       ],
       "available": true,
       "tools": true,
+      "confidential": true,
       "pricing": {
         "input_per_mtok_ndollars": 482800000,
         "output_per_mtok_ndollars": 482800000,
@@ -234,6 +245,7 @@
       ],
       "available": true,
       "tools": true,
+      "confidential": false,
       "pricing": {
         "input_per_mtok_ndollars": 129316000,
         "output_per_mtok_ndollars": 387948000,
@@ -252,6 +264,7 @@
       ],
       "available": true,
       "tools": true,
+      "confidential": true,
       "pricing": {
         "input_per_mtok_ndollars": 219912000,
         "output_per_mtok_ndollars": 659736000,
@@ -270,6 +283,7 @@
       ],
       "available": true,
       "tools": true,
+      "confidential": false,
       "pricing": {
         "input_per_mtok_ndollars": 89940000,
         "output_per_mtok_ndollars": 359760000,
@@ -288,6 +302,7 @@
       ],
       "available": true,
       "tools": true,
+      "confidential": false,
       "pricing": {
         "output_per_image_ndollars": 13500000
       },
@@ -299,6 +314,7 @@
       ],
       "available": true,
       "tools": true,
+      "confidential": false,
       "pricing": {
         "input_per_mtok_ndollars": 425000000,
         "output_per_mtok_ndollars": 2550000000,
@@ -321,6 +337,7 @@
       ],
       "available": true,
       "tools": true,
+      "confidential": false,
       "pricing": {
         "input_per_mtok_ndollars": 212500000,
         "output_per_mtok_ndollars": 1275000000,
@@ -342,6 +359,7 @@
       ],
       "available": true,
       "tools": true,
+      "confidential": false,
       "pricing": {
         "input_per_mtok_ndollars": 212500000,
         "output_per_mtok_ndollars": 1275000000,
@@ -364,6 +382,7 @@
       ],
       "available": true,
       "tools": true,
+      "confidential": false,
       "pricing": {
         "input_per_mtok_ndollars": 1700000000,
         "output_per_mtok_ndollars": 10200000000,
@@ -390,6 +409,7 @@
       ],
       "available": true,
       "tools": true,
+      "confidential": false,
       "pricing": {
         "input_per_mtok_ndollars": 1275000000,
         "output_per_mtok_ndollars": 7650000000,
@@ -412,6 +432,7 @@
       ],
       "available": true,
       "tools": true,
+      "confidential": false,
       "pricing": {
         "input_per_mtok_ndollars": 255000000,
         "output_per_mtok_ndollars": 2125000000,
@@ -434,6 +455,7 @@
       ],
       "available": true,
       "tools": true,
+      "confidential": false,
       "pricing": {
         "input_per_mtok_ndollars": 637500000,
         "output_per_mtok_ndollars": 3187500000,
@@ -456,6 +478,7 @@
       ],
       "available": true,
       "tools": true,
+      "confidential": false,
       "pricing": {
         "input_per_mtok_ndollars": 637500000,
         "output_per_mtok_ndollars": 3187500000,
@@ -478,6 +501,7 @@
       ],
       "available": true,
       "tools": true,
+      "confidential": false,
       "pricing": {
         "input_per_mtok_ndollars": 637500000,
         "output_per_mtok_ndollars": 3187500000,
@@ -499,6 +523,7 @@
       ],
       "available": true,
       "tools": true,
+      "confidential": true,
       "pricing": {
         "input_per_mtok_ndollars": 58764000,
         "output_per_mtok_ndollars": 181189000,
@@ -517,6 +542,7 @@
       ],
       "available": true,
       "tools": true,
+      "confidential": true,
       "pricing": {
         "input_per_mtok_ndollars": 482720000,
         "output_per_mtok_ndollars": 1517120000,
@@ -535,6 +561,7 @@
       ],
       "available": true,
       "tools": true,
+      "confidential": false,
       "pricing": {
         "input_per_mtok_ndollars": 429380000,
         "output_per_mtok_ndollars": 1349480000,
@@ -553,6 +580,7 @@
       ],
       "available": true,
       "tools": true,
+      "confidential": true,
       "pricing": {
         "input_per_mtok_ndollars": 437780000,
         "output_per_mtok_ndollars": 1375880000,
@@ -571,6 +599,7 @@
       ],
       "available": true,
       "tools": true,
+      "confidential": false,
       "pricing": {
         "input_per_mtok_ndollars": 803600000,
         "output_per_mtok_ndollars": 2525600000,
@@ -589,6 +618,7 @@
       ],
       "available": true,
       "tools": true,
+      "confidential": false,
       "pricing": {
         "input_per_mtok_ndollars": 133500000,
         "output_per_mtok_ndollars": 445000000,
@@ -608,6 +638,7 @@
       ],
       "available": true,
       "tools": true,
+      "confidential": false,
       "pricing": {
         "input_per_mtok_ndollars": 2037500000,
         "output_per_mtok_ndollars": 12225000000,
@@ -631,6 +662,7 @@
       ],
       "available": true,
       "tools": true,
+      "confidential": false,
       "pricing": {
         "input_per_mtok_ndollars": 562500000,
         "output_per_mtok_ndollars": 3375000000,
@@ -650,6 +682,7 @@
       ],
       "available": true,
       "tools": true,
+      "confidential": false,
       "pricing": {
         "input_per_mtok_ndollars": 163000000,
         "output_per_mtok_ndollars": 1018750000,
@@ -669,6 +702,7 @@
       ],
       "available": true,
       "tools": true,
+      "confidential": false,
       "pricing": {
         "input_per_mtok_ndollars": 4075000000,
         "output_per_mtok_ndollars": 24450000000,
@@ -691,6 +725,7 @@
       ],
       "available": true,
       "tools": true,
+      "confidential": false,
       "pricing": {
         "input_per_mtok_ndollars": 24600000000,
         "output_per_mtok_ndollars": 147600000000,
@@ -713,6 +748,7 @@
       ],
       "available": true,
       "tools": true,
+      "confidential": false,
       "pricing": {
         "input_per_mtok_ndollars": 163000000,
         "output_per_mtok_ndollars": 978000000,
@@ -738,6 +774,7 @@
       ],
       "available": true,
       "tools": true,
+      "confidential": false,
       "pricing": {
         "input_per_mtok_ndollars": 3260000000,
         "output_per_mtok_ndollars": 16300000000,
@@ -763,6 +800,7 @@
       ],
       "available": true,
       "tools": true,
+      "confidential": false,
       "pricing": {
         "input_per_mtok_ndollars": 1630000000,
         "output_per_mtok_ndollars": 9780000000,
@@ -788,6 +826,7 @@
       ],
       "available": true,
       "tools": true,
+      "confidential": false,
       "pricing": {
         "input_per_mtok_ndollars": 8150000000,
         "output_per_mtok_ndollars": 40750000000,
@@ -813,6 +852,7 @@
       ],
       "available": true,
       "tools": true,
+      "confidential": false,
       "pricing": {
         "input_per_mtok_ndollars": 81500000,
         "output_per_mtok_ndollars": 407500000,
@@ -838,6 +878,7 @@
       ],
       "available": true,
       "tools": true,
+      "confidential": false,
       "pricing": {
         "input_per_mtok_ndollars": 1600000000,
         "output_per_mtok_ndollars": 8000000000,
@@ -863,6 +904,7 @@
       ],
       "available": true,
       "tools": true,
+      "confidential": false,
       "pricing": {
         "input_per_mtok_ndollars": 66465000,
         "output_per_mtok_ndollars": 284850000
@@ -880,6 +922,7 @@
       ],
       "available": true,
       "tools": true,
+      "confidential": true,
       "pricing": {
         "input_per_mtok_ndollars": 172400000,
         "output_per_mtok_ndollars": 982680000,
@@ -898,6 +941,7 @@
       ],
       "available": true,
       "tools": true,
+      "confidential": false,
       "pricing": {
         "input_per_mtok_ndollars": 1034400000,
         "output_per_mtok_ndollars": 5172000000,
@@ -916,6 +960,7 @@
       ],
       "available": true,
       "tools": true,
+      "confidential": true,
       "pricing": {
         "input_per_mtok_ndollars": 1034400000,
         "output_per_mtok_ndollars": 5172000000,
@@ -934,6 +979,7 @@
       ],
       "available": true,
       "tools": true,
+      "confidential": false,
       "pricing": {
         "input_per_mtok_ndollars": 3915000000,
         "output_per_mtok_ndollars": 7830000000,
@@ -952,6 +998,7 @@
       ],
       "available": true,
       "tools": true,
+      "confidential": true,
       "pricing": {
         "input_per_mtok_ndollars": 11997650,
         "output_per_mtok_ndollars": 47892660,
@@ -970,6 +1017,7 @@
       ],
       "available": true,
       "tools": true,
+      "confidential": true,
       "pricing": {
         "input_per_mtok_ndollars": 10988250,
         "output_per_mtok_ndollars": 43863300,
@@ -989,6 +1037,7 @@
       ],
       "available": true,
       "tools": true,
+      "confidential": false,
       "pricing": {
         "input_per_mtok_ndollars": 1630000000,
         "output_per_mtok_ndollars": 6520000000,
@@ -1008,6 +1057,7 @@
       ],
       "available": true,
       "tools": true,
+      "confidential": false,
       "pricing": {
         "input_per_mtok_ndollars": 896500000,
         "output_per_mtok_ndollars": 3586000000,
@@ -1026,6 +1076,7 @@
       ],
       "available": true,
       "tools": true,
+      "confidential": false,
       "pricing": {
         "input_per_mtok_ndollars": 700000000,
         "output_per_mtok_ndollars": 2200000000,
@@ -1044,6 +1095,7 @@
       ],
       "available": true,
       "tools": true,
+      "confidential": true,
       "pricing": {
         "input_per_mtok_ndollars": 144906720,
         "output_per_mtok_ndollars": 579675360,
@@ -1062,6 +1114,7 @@
       ],
       "available": true,
       "tools": true,
+      "confidential": true,
       "pricing": {
         "input_per_mtok_ndollars": 50928800,
         "output_per_mtok_ndollars": 203715200,
@@ -1080,6 +1133,7 @@
       ],
       "available": true,
       "tools": true,
+      "confidential": true,
       "pricing": {
         "input_per_mtok_ndollars": 155160000,
         "output_per_mtok_ndollars": 1034400000,
@@ -1098,6 +1152,7 @@
       ],
       "available": true,
       "tools": true,
+      "confidential": true,
       "pricing": {
         "input_per_mtok_ndollars": 147240000,
         "output_per_mtok_ndollars": 981600000,
@@ -1116,6 +1171,7 @@
       ],
       "available": true,
       "tools": true,
+      "confidential": false,
       "pricing": {
         "input_per_mtok_ndollars": 51832000,
         "output_per_mtok_ndollars": 310365000,
@@ -1134,6 +1190,7 @@
       ],
       "available": true,
       "tools": true,
+      "confidential": false,
       "pricing": {
         "input_per_mtok_ndollars": 53250000,
         "output_per_mtok_ndollars": 319500000,

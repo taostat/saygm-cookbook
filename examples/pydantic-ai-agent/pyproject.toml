@@ -1,9 +1,0 @@
-[project]
-name = "saygm-example-pydantic-ai-agent"
-version = "0.1.0"
-description = "A Pydantic AI agent with a tool, running on SayGM"
-requires-python = ">=3.13"
-dependencies = ["pydantic-ai-slim[anthropic,openai]==2.50.0", "saygm-examples-shared"]
-
-[tool.uv.sources]
-saygm-examples-shared = { workspace = true }

@@ -1,0 +1,7 @@
+{
+  "facts": {
+    "used_weather_tool": { "equals": true },
+    "used_conversion_tool": { "equals": true },
+    "answered": { "equals": true }
+  }
+}

@@ -1,3 +1,3 @@
-import { installMeter } from "@saygm-examples/shared/meter";
+import { installMeter } from "@saygm-cookbook/shared/meter";
 
 installMeter();

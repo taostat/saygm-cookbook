@@ -28,6 +28,7 @@ const repoWith = (examples: Record<string, FakeExample>): string => {
           api_shapes: ["chat.completions"],
           available: true,
           tools: true,
+          confidential: false,
           pricing: {},
           budget_rates: oneNdollarPerToken,
         },
@@ -81,7 +82,7 @@ describe("runExamples", () => {
     const summary = await run(repoWith({ a: passing(40) }), ["a"]);
     expect(summary.ok).toBe(true);
     expect(summary.results).toEqual([
-      { slug: "a", status: "passed", costNdollars: 40n, errors: [] },
+      { slug: "a", status: "passed", costNdollars: 40n, errors: [], usage: [tokens("m", 40, 0)] },
     ]);
     expect(summary.totalNdollars).toBe(40n);
   });
@@ -193,26 +194,52 @@ describe("runExamples", () => {
   });
 });
 
+const tokens = (model: string, input: number, output: number) => ({
+  model,
+  input_tokens: input,
+  output_tokens: output,
+  cache_read_input_tokens: 0,
+  cache_creation_input_tokens: 0,
+});
+const result = (slug: string, status: "passed" | "failed", records = [tokens("m", 1, 1)]) => ({
+  slug,
+  status,
+  costNdollars: 0n,
+  errors: status === "passed" ? [] : ["x"],
+  usage: records,
+});
+
 describe("updateStatus", () => {
-  it("records today for passed examples and keeps earlier dates for the rest", () => {
-    const previous = { a: { verifiedAt: "2026-09-01" }, b: { verifiedAt: "2026-09-01" } };
+  it("records today and the token usage by model for passed examples", () => {
+    const previous = { b: { verifiedAt: "2026-09-01", usage: {} } };
     const results = [
-      { slug: "a", status: "passed" as const, costNdollars: 0n, errors: [] },
-      { slug: "b", status: "failed" as const, costNdollars: 0n, errors: ["x"] },
-      { slug: "c", status: "passed" as const, costNdollars: 0n, errors: [] },
+      result("a", "passed", [tokens("m", 10, 2), tokens("m", 5, 1), tokens("n", 3, 3)]),
+      result("b", "failed"),
     ];
     expect(updateStatus(previous, results, new Date("2026-09-26T12:00:00Z"))).toEqual({
-      a: { verifiedAt: "2026-09-26" },
-      b: { verifiedAt: "2026-09-01" },
-      c: { verifiedAt: "2026-09-26" },
+      a: {
+        verifiedAt: "2026-09-26",
+        usage: {
+          m: {
+            input_tokens: 15,
+            output_tokens: 3,
+            cache_read_input_tokens: 0,
+            cache_creation_input_tokens: 0,
+          },
+          n: {
+            input_tokens: 3,
+            output_tokens: 3,
+            cache_read_input_tokens: 0,
+            cache_creation_input_tokens: 0,
+          },
+        },
+      },
+      b: { verifiedAt: "2026-09-01", usage: {} },
     });
   });
 
   it("sorts slugs so the file diffs cleanly", () => {
-    const results = [
-      { slug: "b", status: "passed" as const, costNdollars: 0n, errors: [] },
-      { slug: "a", status: "passed" as const, costNdollars: 0n, errors: [] },
-    ];
+    const results = [result("b", "passed"), result("a", "passed")];
     expect(Object.keys(updateStatus({}, results, new Date("2026-09-26T00:00:00Z")))).toEqual([
       "a",
       "b",

@@ -1,0 +1,9 @@
+[project]
+name = "saygm-cookbook-pydantic-ai-any-model"
+version = "0.1.0"
+description = "One Pydantic AI agent on open, GPT and Claude models through SayGM"
+requires-python = ">=3.13"
+dependencies = ["pydantic-ai-slim[anthropic,openai]==2.50.0", "saygm-cookbook-shared"]
+
+[tool.uv.sources]
+saygm-cookbook-shared = { workspace = true }

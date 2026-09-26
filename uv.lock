@@ -12,10 +12,12 @@ exclude-newer-span = "PT24H"
 
 [manifest]
 members = [
-    "saygm-example-openai-agents-sdk",
-    "saygm-example-pydantic-ai-agent",
-    "saygm-examples",
-    "saygm-examples-shared",
+    "saygm-cookbook",
+    "saygm-cookbook-build-ai-agent-claude-python",
+    "saygm-cookbook-customer-support-agent",
+    "saygm-cookbook-openai-agents-sdk-other-models",
+    "saygm-cookbook-pydantic-ai-any-model",
+    "saygm-cookbook-shared",
 ]
 
 [[package]]
@@ -1059,37 +1061,7 @@ wheels = [
 ]
 
 [[package]]
-name = "saygm-example-openai-agents-sdk"
-version = "0.1.0"
-source = { virtual = "examples/openai-agents-sdk" }
-dependencies = [
-    { name = "openai-agents" },
-    { name = "saygm-examples-shared" },
-]
-
-[package.metadata]
-requires-dist = [
-    { name = "openai-agents", specifier = "==0.22.3" },
-    { name = "saygm-examples-shared", editable = "shared/python" },
-]
-
-[[package]]
-name = "saygm-example-pydantic-ai-agent"
-version = "0.1.0"
-source = { virtual = "examples/pydantic-ai-agent" }
-dependencies = [
-    { name = "pydantic-ai-slim", extra = ["anthropic", "openai"] },
-    { name = "saygm-examples-shared" },
-]
-
-[package.metadata]
-requires-dist = [
-    { name = "pydantic-ai-slim", extras = ["anthropic", "openai"], specifier = "==2.50.0" },
-    { name = "saygm-examples-shared", editable = "shared/python" },
-]
-
-[[package]]
-name = "saygm-examples"
+name = "saygm-cookbook"
 version = "0.1.0"
 source = { virtual = "." }
 
@@ -1097,7 +1069,7 @@ source = { virtual = "." }
 dev = [
     { name = "pytest" },
     { name = "ruff" },
-    { name = "saygm-examples-shared" },
+    { name = "saygm-cookbook-shared" },
     { name = "ty" },
 ]
 
@@ -1107,12 +1079,72 @@ dev = [
 dev = [
     { name = "pytest", specifier = "==9.1.1" },
     { name = "ruff", specifier = "==0.16.9" },
-    { name = "saygm-examples-shared", editable = "shared/python" },
+    { name = "saygm-cookbook-shared", editable = "shared/python" },
     { name = "ty", specifier = "==0.0.84" },
 ]
 
 [[package]]
-name = "saygm-examples-shared"
+name = "saygm-cookbook-build-ai-agent-claude-python"
+version = "0.1.0"
+source = { virtual = "examples/build-ai-agent-claude-python" }
+dependencies = [
+    { name = "anthropic" },
+    { name = "saygm-cookbook-shared" },
+]
+
+[package.metadata]
+requires-dist = [
+    { name = "anthropic", specifier = "==1.8.0" },
+    { name = "saygm-cookbook-shared", editable = "shared/python" },
+]
+
+[[package]]
+name = "saygm-cookbook-customer-support-agent"
+version = "0.1.0"
+source = { virtual = "examples/customer-support-agent" }
+dependencies = [
+    { name = "pydantic-ai-slim", extra = ["anthropic", "openai"] },
+    { name = "saygm-cookbook-shared" },
+]
+
+[package.metadata]
+requires-dist = [
+    { name = "pydantic-ai-slim", extras = ["anthropic", "openai"], specifier = "==2.50.0" },
+    { name = "saygm-cookbook-shared", editable = "shared/python" },
+]
+
+[[package]]
+name = "saygm-cookbook-openai-agents-sdk-other-models"
+version = "0.1.0"
+source = { virtual = "examples/openai-agents-sdk-other-models" }
+dependencies = [
+    { name = "openai-agents" },
+    { name = "saygm-cookbook-shared" },
+]
+
+[package.metadata]
+requires-dist = [
+    { name = "openai-agents", specifier = "==0.22.3" },
+    { name = "saygm-cookbook-shared", editable = "shared/python" },
+]
+
+[[package]]
+name = "saygm-cookbook-pydantic-ai-any-model"
+version = "0.1.0"
+source = { virtual = "examples/pydantic-ai-any-model" }
+dependencies = [
+    { name = "pydantic-ai-slim", extra = ["anthropic", "openai"] },
+    { name = "saygm-cookbook-shared" },
+]
+
+[package.metadata]
+requires-dist = [
+    { name = "pydantic-ai-slim", extras = ["anthropic", "openai"], specifier = "==2.50.0" },
+    { name = "saygm-cookbook-shared", editable = "shared/python" },
+]
+
+[[package]]
+name = "saygm-cookbook-shared"
 version = "0.1.0"
 source = { editable = "shared/python" }
 dependencies = [

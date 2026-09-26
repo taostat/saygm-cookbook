@@ -11,6 +11,7 @@ const qwen = {
   api_shapes: ["chat.completions"],
   available: true,
   tools: true,
+  confidential: false,
   pricing: { input_per_mtok_ndollars: 51_832_000, output_per_mtok_ndollars: 310_365_000 },
   budget_rates: {
     input: 248_000_000,
@@ -59,6 +60,25 @@ describe("parseCatalog", () => {
     const catalog = valid();
     catalog.models["qwen3.6-35b-a3b"].tools = false;
     expect(() => parseCatalog(catalog)).toThrow(/role "chat_cheap" needs tools/);
+  });
+
+  it("rejects a confidential role whose model is not confidential", () => {
+    const catalog = valid() as { roles: Record<string, Record<string, unknown>> };
+    catalog.roles["chat_cheap"] = { ...catalog.roles["chat_cheap"], confidential: true };
+    expect(() => parseCatalog(catalog)).toThrow(/role "chat_cheap" needs a confidential model/);
+  });
+
+  it("accepts a confidential role on a confidential model", () => {
+    const catalog = valid() as {
+      roles: Record<string, Record<string, unknown>>;
+      models: Record<string, Record<string, unknown>>;
+    };
+    catalog.roles["chat_cheap"] = { ...catalog.roles["chat_cheap"], confidential: true };
+    catalog.models["qwen3.6-35b-a3b"] = {
+      ...catalog.models["qwen3.6-35b-a3b"],
+      confidential: true,
+    };
+    expect(parseCatalog(catalog).roles["chat_cheap"]?.confidential).toBe(true);
   });
 
   it("rejects a role whose model has no budget rates", () => {
@@ -127,6 +147,13 @@ const apiModel = (id: string, extra: Record<string, unknown> = {}) => ({
 });
 
 describe("modelsFromApi", () => {
+  it("keeps the confidential flag", () => {
+    expect(
+      modelsFromApi({ data: [apiModel("m", { confidential: true })] })["m"]?.confidential,
+    ).toBe(true);
+    expect(modelsFromApi({ data: [apiModel("m")] })["m"]?.confidential).toBe(false);
+  });
+
   it("keeps shapes, availability, tools and live prices", () => {
     const models = modelsFromApi({ data: [apiModel("m")] });
     expect(models["m"]?.api_shapes).toEqual(["chat.completions", "responses"]);

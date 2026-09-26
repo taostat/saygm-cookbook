@@ -1,0 +1,14 @@
+[
+  {
+    "topic": "shipping",
+    "answer": "Orders ship within 2 business days. Delivery takes 3 to 7 business days."
+  },
+  {
+    "topic": "returns",
+    "answer": "Unused items can be returned within 30 days of delivery for store credit."
+  },
+  {
+    "topic": "refunds",
+    "answer": "Refunds for damaged or missing items go to the original payment method after review."
+  }
+]

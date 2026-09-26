@@ -1,0 +1,7 @@
+{
+  "facts": {
+    "open_model_chunks": { "min": 2 },
+    "claude_answered": { "equals": true },
+    "page_loads_client": { "equals": true }
+  }
+}

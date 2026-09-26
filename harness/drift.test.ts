@@ -14,6 +14,7 @@ const catalog = parseCatalog({
       api_shapes: ["chat.completions"],
       available: true,
       tools: true,
+      confidential: false,
       pricing: {},
       budget_rates: rates,
     },
@@ -21,6 +22,7 @@ const catalog = parseCatalog({
       api_shapes: ["messages"],
       available: true,
       tools: true,
+      confidential: false,
       pricing: {},
       budget_rates: rates,
     },
@@ -47,6 +49,12 @@ describe("scanTypeScript", () => {
     expect(facts.roles).toEqual([
       { role: "chat_cheap", line: 3 },
       { role: null, line: 4 },
+    ]);
+  });
+
+  it("parses JavaScript files", () => {
+    expect(scanTypeScript('const u = "https://api.saygm.com/v1";\n', "chat.js").strings).toEqual([
+      { value: "https://api.saygm.com/v1", line: 1 },
     ]);
   });
 
@@ -165,6 +173,27 @@ describe("checkDrift URL and model rules", () => {
       'examples/x/main.ts:4: hard-coded model id "claude-3-haiku"; use a model role from catalog.json',
       'examples/x/main.ts:5: hard-coded model id "qwen2.5-72b"; use a model role from catalog.json',
     ]);
+  });
+
+  it("allows local URLs", () => {
+    expect(
+      checkDrift(catalog, [
+        facts([
+          ["http://127.0.0.1:", 1],
+          ["http://localhost:3000", 2],
+        ]),
+      ]),
+    ).toEqual([]);
+  });
+
+  it("flags a URL that only looks local", () => {
+    for (const url of [
+      "http://localhost:password@example.com/v1",
+      "http://localhost.example.com/v1",
+      "https://localhost/",
+    ]) {
+      expect(checkDrift(catalog, [facts([[url, 1]])])).toHaveLength(1);
+    }
   });
 
   it("allows ordinary hyphenated strings", () => {

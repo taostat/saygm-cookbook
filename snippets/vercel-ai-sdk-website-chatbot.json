@@ -1,0 +1,50 @@
+{
+  "slug": "vercel-ai-sdk-website-chatbot",
+  "regions": {
+    "client": {
+      "lang": "javascript",
+      "file": "examples/vercel-ai-sdk-website-chatbot/chat.js",
+      "code": "/**\n * Sends the conversation to the chat route and calls onText as each piece of the reply arrives.\n *\n * @param {string} url\n * @param {Array<{ role: \"user\" | \"assistant\", content: string }>} messages\n * @param {(text: string) => void} onText\n * @returns {Promise<string>} the full reply\n */\nexport async function streamChat(url, messages, onText) {\n  const response = await fetch(url, {\n    method: \"POST\",\n    headers: { \"content-type\": \"application/json\" },\n    body: JSON.stringify({ messages }),\n  });\n  if (!response.ok || !response.body) {\n    throw new Error(`Chat request failed with status ${response.status}`);\n  }\n  const reader = response.body.pipeThrough(new TextDecoderStream()).getReader();\n  let reply = \"\";\n  for (;;) {\n    const { done, value } = await reader.read();\n    if (done) {\n      return reply;\n    }\n    reply += value;\n    onText(value);\n  }\n}"
+    },
+    "install": {
+      "lang": "bash",
+      "file": "examples/vercel-ai-sdk-website-chatbot/commands.sh",
+      "code": "npm install @ai-sdk/anthropic@4.0.63 @ai-sdk/openai@4.0.75 ai@7.0.114"
+    },
+    "run": {
+      "lang": "bash",
+      "file": "examples/vercel-ai-sdk-website-chatbot/commands.sh",
+      "code": "node main.ts"
+    },
+    "page": {
+      "lang": "html",
+      "file": "examples/vercel-ai-sdk-website-chatbot/index.html",
+      "code": "<div id=\"log\"></div>\n<form id=\"form\">\n  <input id=\"input\" autocomplete=\"off\" placeholder=\"Ask a question\" maxlength=\"1000\" required />\n  <button id=\"send\">Send</button>\n</form>\n<script type=\"module\">\n  import { streamChat } from \"/chat.js\";\n\n  const MAX_HISTORY = 20;\n  const messages = [];\n  const log = document.getElementById(\"log\");\n  const input = document.getElementById(\"input\");\n  const send = document.getElementById(\"send\");\n\n  document.getElementById(\"form\").addEventListener(\"submit\", async (event) => {\n    event.preventDefault();\n    send.disabled = true;\n    const question = { role: \"user\", content: input.value };\n    messages.push(question);\n    log.append(\n      Object.assign(document.createElement(\"p\"), { textContent: `You: ${input.value}` }),\n    );\n    input.value = \"\";\n\n    const reply = document.createElement(\"p\");\n    log.append(reply);\n    try {\n      const text = await streamChat(\"/api/chat\", messages.slice(-MAX_HISTORY), (chunk) => {\n        reply.textContent += chunk;\n      });\n      messages.push({ role: \"assistant\", content: text });\n    } catch {\n      messages.splice(messages.indexOf(question), 1);\n      reply.textContent = \"Sorry, something went wrong. Please try again.\";\n    } finally {\n      send.disabled = false;\n    }\n  });\n</script>"
+    },
+    "setup": {
+      "lang": "typescript",
+      "file": "examples/vercel-ai-sdk-website-chatbot/main.ts",
+      "code": "import { readFile } from \"node:fs/promises\";\nimport { createServer } from \"node:http\";\nimport type { IncomingMessage, ServerResponse } from \"node:http\";\nimport type { AddressInfo } from \"node:net\";\nimport { createAnthropic } from \"@ai-sdk/anthropic\";\nimport { createOpenAI } from \"@ai-sdk/openai\";\nimport { streamText } from \"ai\";\nimport type { LanguageModel, ModelMessage } from \"ai\";\n\nconst apiKey = process.env.SAYGM_API_KEY;\nif (!apiKey) {\n  throw new Error(\"Set SAYGM_API_KEY to your SayGM key.\");\n}\n\nconst saygm = createOpenAI({ baseURL: \"https://api.saygm.com/v1\", apiKey });\nconst anthropic = createAnthropic({ baseURL: \"https://api.saygm.com/v1\", apiKey });"
+    },
+    "route": {
+      "lang": "typescript",
+      "file": "examples/vercel-ai-sdk-website-chatbot/main.ts",
+      "code": "const MAX_BODY_BYTES = 64_000;\nconst MAX_MESSAGES = 20;\n\nasync function readMessages(request: IncomingMessage): Promise<ModelMessage[]> {\n  const chunks: Buffer[] = [];\n  let size = 0;\n  for await (const chunk of request as AsyncIterable<Buffer>) {\n    size += chunk.length;\n    if (size > MAX_BODY_BYTES) {\n      throw new Error(\"Request body too large\");\n    }\n    chunks.push(chunk);\n  }\n  const { messages } = JSON.parse(Buffer.concat(chunks).toString(\"utf8\")) as {\n    messages: unknown[];\n  };\n  return messages\n    .filter(\n      (message): message is ModelMessage =>\n        typeof message === \"object\" &&\n        message !== null &&\n        \"role\" in message &&\n        (message.role === \"user\" || message.role === \"assistant\") &&\n        \"content\" in message &&\n        typeof message.content === \"string\",\n    )\n    .slice(-MAX_MESSAGES);\n}\n\nfunction chatRoute(model: LanguageModel) {\n  return async (request: IncomingMessage, response: ServerResponse) => {\n    // A JSON content type forces a CORS preflight, so other sites cannot post to this route.\n    const [contentType] = (request.headers[\"content-type\"] ?? \"\").split(\";\");\n    if (contentType?.trim() !== \"application/json\") {\n      response.writeHead(415).end();\n      return;\n    }\n    const result = streamText({\n      model,\n      system: \"You are a friendly assistant on an online shop's website. Keep answers short.\",\n      messages: await readMessages(request),\n      maxOutputTokens: 400,\n    });\n    for await (const part of result.fullStream) {\n      if (part.type === \"error\") {\n        console.error(part.error);\n        if (response.headersSent) {\n          response.destroy();\n        } else {\n          response.writeHead(502).end();\n        }\n        return;\n      }\n      if (part.type === \"text-delta\") {\n        if (!response.headersSent) {\n          response.writeHead(200, { \"content-type\": \"text/plain; charset=utf-8\" });\n        }\n        response.write(part.text);\n      }\n    }\n    response.end();\n  };\n}"
+    },
+    "routes": {
+      "lang": "typescript",
+      "file": "examples/vercel-ai-sdk-website-chatbot/main.ts",
+      "code": "const routes: Record<string, ReturnType<typeof chatRoute>> = {\n  \"/api/chat\": chatRoute(saygm.chat(\"deepseek-v4-flash-0731\")),\n};"
+    },
+    "claude": {
+      "lang": "typescript",
+      "file": "examples/vercel-ai-sdk-website-chatbot/main.ts",
+      "code": "routes[\"/api/chat/claude\"] = chatRoute(anthropic(\"claude-haiku-4-5\"));"
+    },
+    "listen": {
+      "lang": "typescript",
+      "file": "examples/vercel-ai-sdk-website-chatbot/main.ts",
+      "code": "const files: Record<string, [string, string]> = {\n  \"/\": [\"index.html\", \"text/html\"],\n  \"/chat.js\": [\"chat.js\", \"text/javascript\"],\n};\n\nconst server = createServer(async (request, response) => {\n  const route = routes[request.url ?? \"\"];\n  const file = files[request.url ?? \"\"];\n  try {\n    if (request.method === \"POST\" && route) {\n      await route(request, response);\n    } else if (request.method === \"GET\" && file) {\n      const [name, type] = file;\n      response.writeHead(200, { \"content-type\": type });\n      response.end(await readFile(new URL(name, import.meta.url)));\n    } else {\n      response.writeHead(404).end();\n    }\n  } catch (error) {\n    console.error(error);\n    response.writeHead(400).end();\n  }\n});\n\nserver.listen(Number(process.env.PORT ?? 3000), \"127.0.0.1\", () => {\n  const { port } = server.address() as AddressInfo;\n  console.log(`Chatbot running at http://localhost:${port}`);\n});"
+    }
+  }
+}

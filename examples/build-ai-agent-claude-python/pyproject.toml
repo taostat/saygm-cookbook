@@ -1,0 +1,9 @@
+[project]
+name = "saygm-cookbook-build-ai-agent-claude-python"
+version = "0.1.0"
+description = "An AI agent with tools on Claude, using the Anthropic Python SDK on SayGM"
+requires-python = ">=3.13"
+dependencies = ["anthropic==1.8.0", "saygm-cookbook-shared"]
+
+[tool.uv.sources]
+saygm-cookbook-shared = { workspace = true }

@@ -1,7 +1,7 @@
 import { readFileSync, readdirSync } from "node:fs";
 import { join } from "node:path";
 
-const SOURCE_FILE = /^[^.].*\.(?:ts|py|sh)$/;
+const SOURCE_FILE = /^[^.].*\.(?:ts|js|py|sh|html)$/;
 
 export function exampleSlugs(repoRoot: string): string[] {
   return readdirSync(join(repoRoot, "examples"), { withFileTypes: true })

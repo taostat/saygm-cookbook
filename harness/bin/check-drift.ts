@@ -12,7 +12,7 @@ const catalog = parseCatalog(readJson(join(repoRoot, "catalog.json")));
 async function checkExample(slug: string): Promise<string[]> {
   const problems: string[] = [];
   const files = exampleSources(repoRoot, slug);
-  const code = files.filter(({ file }) => !file.endsWith(".sh"));
+  const code = files.filter(({ file }) => /\.(?:ts|js|py)$/.test(file));
   const sources = await Promise.all(
     code.map(({ file, source }) =>
       file.endsWith(".py") ? scanPython(source, file) : scanTypeScript(source, file),

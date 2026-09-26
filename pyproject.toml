@@ -1,21 +1,27 @@
 [project]
-name = "saygm-examples"
+name = "saygm-cookbook"
 version = "0.1.0"
 requires-python = ">=3.13"
 dependencies = []
 
 [dependency-groups]
-dev = ["pytest==9.1.1", "ruff==0.16.9", "ty==0.0.84", "saygm-examples-shared"]
+dev = ["pytest==9.1.1", "ruff==0.16.9", "ty==0.0.84", "saygm-cookbook-shared"]
 
 [tool.uv]
 package = false
 exclude-newer = "24 hours"
 
 [tool.uv.workspace]
-members = ["shared/python", "examples/openai-agents-sdk", "examples/pydantic-ai-agent"]
+members = [
+  "shared/python",
+  "examples/build-ai-agent-claude-python",
+  "examples/customer-support-agent",
+  "examples/openai-agents-sdk-other-models",
+  "examples/pydantic-ai-any-model",
+]
 
 [tool.uv.sources]
-saygm-examples-shared = { workspace = true }
+saygm-cookbook-shared = { workspace = true }
 
 [tool.ruff]
 line-length = 100

@@ -4,7 +4,7 @@ from pathlib import Path
 
 import httpx2
 import pytest
-from saygm_examples_shared.meter import install_meter, usage_from_json
+from saygm_cookbook_shared.meter import install_meter, usage_from_json
 
 
 def counts(inp: int, out: int, cache_read: int = 0, cache_write: int = 0) -> dict[str, int]:

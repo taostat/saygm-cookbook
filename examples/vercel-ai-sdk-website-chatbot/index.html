@@ -1,0 +1,51 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Shop assistant</title>
+  </head>
+  <body>
+    <!-- region: page -->
+    <div id="log"></div>
+    <form id="form">
+      <input id="input" autocomplete="off" placeholder="Ask a question" maxlength="1000" required />
+      <button id="send">Send</button>
+    </form>
+    <script type="module">
+      import { streamChat } from "/chat.js";
+
+      const MAX_HISTORY = 20;
+      const messages = [];
+      const log = document.getElementById("log");
+      const input = document.getElementById("input");
+      const send = document.getElementById("send");
+
+      document.getElementById("form").addEventListener("submit", async (event) => {
+        event.preventDefault();
+        send.disabled = true;
+        const question = { role: "user", content: input.value };
+        messages.push(question);
+        log.append(
+          Object.assign(document.createElement("p"), { textContent: `You: ${input.value}` }),
+        );
+        input.value = "";
+
+        const reply = document.createElement("p");
+        log.append(reply);
+        try {
+          const text = await streamChat("/api/chat", messages.slice(-MAX_HISTORY), (chunk) => {
+            reply.textContent += chunk;
+          });
+          messages.push({ role: "assistant", content: text });
+        } catch {
+          messages.splice(messages.indexOf(question), 1);
+          reply.textContent = "Sorry, something went wrong. Please try again.";
+        } finally {
+          send.disabled = false;
+        }
+      });
+    </script>
+    <!-- endregion -->
+  </body>
+</html>

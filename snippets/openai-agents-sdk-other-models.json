@@ -1,0 +1,40 @@
+{
+  "slug": "openai-agents-sdk-other-models",
+  "regions": {
+    "install": {
+      "lang": "bash",
+      "file": "examples/openai-agents-sdk-other-models/commands.sh",
+      "code": "pip install openai-agents==0.22.3"
+    },
+    "run": {
+      "lang": "bash",
+      "file": "examples/openai-agents-sdk-other-models/commands.sh",
+      "code": "python main.py"
+    },
+    "setup": {
+      "lang": "python",
+      "file": "examples/openai-agents-sdk-other-models/main.py",
+      "code": "import os\n\nfrom agents import (\n    Agent,\n    OpenAIChatCompletionsModel,\n    Runner,\n    function_tool,\n    set_default_openai_client,\n    set_tracing_disabled,\n)\nfrom openai import AsyncOpenAI\n\nclient = AsyncOpenAI(base_url=\"https://api.saygm.com/v1\", api_key=os.environ[\"SAYGM_API_KEY\"])\nset_default_openai_client(client, use_for_tracing=False)\nset_tracing_disabled(disabled=True)"
+    },
+    "tool": {
+      "lang": "python",
+      "file": "examples/openai-agents-sdk-other-models/main.py",
+      "code": "@function_tool\ndef get_weather(city: str) -> str:\n    \"\"\"Get the current weather for a city.\"\"\"\n    return f\"{city}: 18 C and light rain\""
+    },
+    "gpt-agent": {
+      "lang": "python",
+      "file": "examples/openai-agents-sdk-other-models/main.py",
+      "code": "gpt_agent = Agent(\n    name=\"Weather assistant on GPT\",\n    instructions=\"Answer weather questions. Use the get_weather tool for current conditions.\",\n    model=\"gpt-5.4-nano\",\n    tools=[get_weather],\n)"
+    },
+    "open-model-agent": {
+      "lang": "python",
+      "file": "examples/openai-agents-sdk-other-models/main.py",
+      "code": "open_agent = Agent(\n    name=\"Weather assistant on an open model\",\n    instructions=\"Answer weather questions. Use the get_weather tool for current conditions.\",\n    model=OpenAIChatCompletionsModel(model=\"deepseek-v4-flash-0731\", openai_client=client),\n    tools=[get_weather],\n)"
+    },
+    "run-agents": {
+      "lang": "python",
+      "file": "examples/openai-agents-sdk-other-models/main.py",
+      "code": "question = \"What is the weather in Paris? Should I take an umbrella?\"\n\ngpt_result = Runner.run_sync(gpt_agent, question)\nprint(f\"GPT: {gpt_result.final_output}\")\n\nopen_result = Runner.run_sync(open_agent, question)\nprint(f\"Open model: {open_result.final_output}\")"
+    }
+  }
+}

@@ -1,8 +1,8 @@
 {
-  "name": "@saygm-examples/shared",
+  "name": "@saygm-cookbook/shared",
   "version": "0.1.0",
   "private": true,
-  "description": "Model roles and run reporting shared by the SayGM examples",
+  "description": "Model roles and run reporting shared by the SayGM cookbook examples",
   "type": "module",
   "exports": {
     ".": "./index.ts",

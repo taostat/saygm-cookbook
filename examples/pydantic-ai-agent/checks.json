@@ -1,7 +1,0 @@
-{
-  "facts": {
-    "tool_calls": { "min": 1 },
-    "answered": { "equals": true },
-    "claude_tool_calls": { "min": 1 }
-  }
-}

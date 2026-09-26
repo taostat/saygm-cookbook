@@ -2,7 +2,7 @@ import { mkdtempSync, readFileSync, writeFileSync } from "node:fs";
 import { tmpdir } from "node:os";
 import { join } from "node:path";
 import { describe, expect, it } from "vitest";
-import { modelId, reportFact } from "@saygm-examples/shared";
+import { modelId, reportFact } from "@saygm-cookbook/shared";
 
 const catalogFile = (content: unknown): string => {
   const path = join(mkdtempSync(join(tmpdir(), "catalog-")), "catalog.json");

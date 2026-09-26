@@ -4,12 +4,14 @@ export interface RoleSpec {
   model: string;
   shape: string;
   tools: boolean;
+  confidential?: boolean;
 }
 
 export interface CatalogModel {
   api_shapes: string[];
   available: boolean;
   tools: boolean;
+  confidential: boolean;
   pricing: Record<string, number>;
   budget_rates: Rates | null;
 }
@@ -87,6 +89,7 @@ function parseModel(value: unknown, path: string): CatalogModel {
     api_shapes: stringArray(model["api_shapes"], `${path}.api_shapes`),
     available: boolean(model["available"], `${path}.available`),
     tools: boolean(model["tools"], `${path}.tools`),
+    confidential: boolean(model["confidential"], `${path}.confidential`),
     pricing: counts(model["pricing"], `${path}.pricing`),
     budget_rates: parseRates(model["budget_rates"], `${path}.budget_rates`),
   };
@@ -108,6 +111,9 @@ function checkRole(name: string, role: RoleSpec, models: Record<string, CatalogM
   }
   if (role.tools && !model.tools) {
     throw new CatalogError(`role "${name}" needs tools but "${role.model}" does not support them`);
+  }
+  if (role.confidential === true && !model.confidential) {
+    throw new CatalogError(`role "${name}" needs a confidential model but "${role.model}" is not`);
   }
   if (model.budget_rates === null) {
     throw new CatalogError(`${uses}, which has no token rates to budget with`);
@@ -136,6 +142,9 @@ export function parseCatalog(value: unknown): Catalog {
       model: string(role["model"], `roles.${name}.model`),
       shape: string(role["shape"], `roles.${name}.shape`),
       tools: boolean(role["tools"], `roles.${name}.tools`),
+      ...(role["confidential"] === undefined
+        ? {}
+        : { confidential: boolean(role["confidential"], `roles.${name}.confidential`) }),
     };
     checkRole(name, roles[name], models);
   }
@@ -221,6 +230,7 @@ function modelFromApi(model: Json, path: string): CatalogModel {
     api_shapes: stringArray(model["api_shapes"] ?? [], `${path}.api_shapes`),
     available: model["available"] === true,
     tools,
+    confidential: model["confidential"] === true,
     pricing: tables[0] ?? {},
     budget_rates: budgetRates(tables),
   };

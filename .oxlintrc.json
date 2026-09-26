@@ -11,9 +11,17 @@
     "import/no-unassigned-import": [
       "error",
       {
-        "allow": ["@saygm-examples/shared/install-meter"]
+        "allow": ["@saygm-cookbook/shared/install-meter"]
       }
     ]
   },
-  "ignorePatterns": ["node_modules", ".venv"]
+  "ignorePatterns": ["node_modules", ".venv"],
+  "overrides": [
+    {
+      "files": ["examples/**"],
+      "rules": {
+        "no-await-in-loop": "off"
+      }
+    }
+  ]
 }

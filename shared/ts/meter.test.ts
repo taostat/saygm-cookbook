@@ -7,7 +7,7 @@ import {
   meteredFetch,
   usageFromJson,
   usageFromSse,
-} from "@saygm-examples/shared/meter";
+} from "@saygm-cookbook/shared/meter";
 
 const counts = (input: number, output: number, cacheRead = 0, cacheWrite = 0) => ({
   input_tokens: input,

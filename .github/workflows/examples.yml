@@ -16,6 +16,8 @@ concurrency:
 jobs:
   live:
     name: Run examples against SayGM
+    # Pull requests from forks get no secrets; their offline checks still run in checks.yml.
+    if: github.event_name != 'pull_request' || github.event.pull_request.head.repo.full_name == github.repository
     runs-on: ubuntu-24.04
     timeout-minutes: 30
     permissions:
@@ -66,7 +68,7 @@ jobs:
           SLUGS: ${{ steps.select.outputs.slugs }}
         run: |
           if [ -z "$SAYGM_API_KEY" ]; then
-            echo "::error::SAYGM_API_KEY is not available to this run (fork pull requests have no secrets)."
+            echo "::error::SAYGM_API_KEY is not set for this repository."
             exit 1
           fi
           # shellcheck disable=SC2086 # SLUGS is a space-separated list of example names

@@ -1,0 +1,9 @@
+[project]
+name = "saygm-cookbook-customer-support-agent"
+version = "0.1.0"
+description = "A customer support agent that answers routine questions on an open model and escalates to Claude"
+requires-python = ">=3.13"
+dependencies = ["pydantic-ai-slim[anthropic,openai]==2.50.0", "saygm-cookbook-shared"]
+
+[tool.uv.sources]
+saygm-cookbook-shared = { workspace = true }

@@ -1,0 +1,30 @@
+{
+  "slug": "build-ai-agent-claude-python",
+  "regions": {
+    "install": {
+      "lang": "bash",
+      "file": "examples/build-ai-agent-claude-python/commands.sh",
+      "code": "pip install anthropic==1.8.0"
+    },
+    "run": {
+      "lang": "bash",
+      "file": "examples/build-ai-agent-claude-python/commands.sh",
+      "code": "python main.py"
+    },
+    "setup": {
+      "lang": "python",
+      "file": "examples/build-ai-agent-claude-python/main.py",
+      "code": "import json\nimport os\n\nimport anthropic\nfrom anthropic.types import MessageParam, ToolParam, ToolResultBlockParam\n\nclient = anthropic.Anthropic(\n    base_url=\"https://api.saygm.com\",\n    api_key=os.environ[\"SAYGM_API_KEY\"],\n)\nmodel = \"claude-haiku-4-5\""
+    },
+    "tools": {
+      "lang": "python",
+      "file": "examples/build-ai-agent-claude-python/main.py",
+      "code": "tools: list[ToolParam] = [\n    {\n        \"name\": \"get_weather\",\n        \"description\": \"Get the current weather for a city.\",\n        \"input_schema\": {\n            \"type\": \"object\",\n            \"properties\": {\"city\": {\"type\": \"string\", \"description\": \"City name, like Paris\"}},\n            \"required\": [\"city\"],\n        },\n    },\n    {\n        \"name\": \"convert_temperature\",\n        \"description\": \"Convert a temperature from Celsius to Fahrenheit.\",\n        \"input_schema\": {\n            \"type\": \"object\",\n            \"properties\": {\"celsius\": {\"type\": \"number\"}},\n            \"required\": [\"celsius\"],\n        },\n    },\n]\n\n\ndef run_tool(name: str, tool_input: dict) -> str:\n    if name == \"get_weather\":\n        return json.dumps({\"city\": tool_input[\"city\"], \"celsius\": 18, \"conditions\": \"light rain\"})\n    if name == \"convert_temperature\":\n        return json.dumps({\"fahrenheit\": tool_input[\"celsius\"] * 9 / 5 + 32})\n    return f\"Unknown tool: {name}\""
+    },
+    "loop": {
+      "lang": "python",
+      "file": "examples/build-ai-agent-claude-python/main.py",
+      "code": "def run_agent(question: str, max_turns: int = 6) -> tuple[str, list[MessageParam]]:\n    messages: list[MessageParam] = [{\"role\": \"user\", \"content\": question}]\n    for _ in range(max_turns):\n        response = client.messages.create(\n            model=model, max_tokens=1024, tools=tools, messages=messages\n        )\n        messages.append({\"role\": \"assistant\", \"content\": response.content})\n        if response.stop_reason != \"tool_use\":\n            answer = \"\".join(block.text for block in response.content if block.type == \"text\")\n            return answer, messages\n        results: list[ToolResultBlockParam] = [\n            {\n                \"type\": \"tool_result\",\n                \"tool_use_id\": block.id,\n                \"content\": run_tool(block.name, block.input),\n            }\n            for block in response.content\n            if block.type == \"tool_use\"\n        ]\n        messages.append({\"role\": \"user\", \"content\": results})\n    msg = f\"The agent did not finish within {max_turns} turns.\"\n    raise RuntimeError(msg)\n\n\nanswer, transcript = run_agent(\n    \"What is the weather in Paris, in Fahrenheit? Do I need an umbrella?\"\n)\nprint(answer)"
+    }
+  }
+}

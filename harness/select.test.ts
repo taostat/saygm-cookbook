@@ -17,7 +17,7 @@ describe("selectExamples", () => {
     for (const path of [
       "harness/run.ts",
       "shared/ts/index.ts",
-      "shared/python/src/saygm_examples_shared/__init__.py",
+      "shared/python/src/saygm_cookbook_shared/__init__.py",
       "catalog.json",
       "pnpm-lock.yaml",
       "uv.lock",

@@ -1,0 +1,8 @@
+{
+  "facts": {
+    "routine_escalated": { "equals": false },
+    "routine_tool_calls": { "min": 1 },
+    "refund_escalated": { "equals": true },
+    "refund_answered_by_claude": { "equals": true }
+  }
+}

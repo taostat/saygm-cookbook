@@ -16,7 +16,7 @@ describe("readManifest", () => {
   it("reads exact npm dependencies and skips workspace packages", async () => {
     const dir = exampleDir({
       "package.json": JSON.stringify({
-        dependencies: { ai: "7.0.114", zod: "4.6.5", "@saygm-examples/shared": "workspace:*" },
+        dependencies: { ai: "7.0.114", zod: "4.6.5", "@saygm-cookbook/shared": "workspace:*" },
       }),
     });
     expect(await readManifest(dir)).toEqual({
@@ -30,7 +30,7 @@ describe("readManifest", () => {
       "pyproject.toml": [
         "[project]",
         'name = "x"',
-        'dependencies = ["pydantic-ai-slim[anthropic,openai]==2.50.0", "saygm-examples-shared"]',
+        'dependencies = ["pydantic-ai-slim[anthropic,openai]==2.50.0", "saygm-cookbook-shared"]',
       ].join("\n"),
     });
     expect(await readManifest(dir)).toEqual({

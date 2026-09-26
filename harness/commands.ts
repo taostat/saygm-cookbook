@@ -7,7 +7,7 @@ export interface Manifest {
   dependencies: Record<string, string>;
 }
 
-const WORKSPACE_PACKAGES = new Set(["@saygm-examples/shared", "saygm-examples-shared"]);
+const WORKSPACE_PACKAGES = new Set(["@saygm-cookbook/shared", "saygm-cookbook-shared"]);
 const EXACT_VERSION = /^\d+\.\d+\.\d+(?:[-+.][0-9A-Za-z.]+)?$/;
 
 const INSTALLERS: Record<Manifest["lang"], { prefix: string; separator: string; run: string }> = {

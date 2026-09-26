@@ -1,8 +1,0 @@
-{
-  "facts": {
-    "tool_calls": { "min": 1 },
-    "answered": { "equals": true },
-    "schema_valid": { "equals": true },
-    "take_umbrella": { "equals": true }
-  }
-}

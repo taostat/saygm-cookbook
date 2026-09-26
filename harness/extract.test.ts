@@ -122,6 +122,25 @@ describe("extractRegions", () => {
     }
   });
 
+  it("extracts HTML regions marked with HTML comments", () => {
+    const source = [
+      "<body>",
+      "  <!-- region: page -->",
+      "  <form></form>",
+      "  <!-- endregion -->",
+      "</body>",
+    ].join("\n");
+    expect(extractRegions(source, "examples/demo/index.html")).toEqual([
+      ["page", { lang: "html", file: "examples/demo/index.html", code: "<form></form>" }],
+    ]);
+  });
+
+  it("rejects a malformed HTML marker", () => {
+    expect(() =>
+      extractRegions("<!-- region page -->\n<p></p>\n<!-- endregion -->\n", "index.html"),
+    ).toThrow(/index\.html:1: malformed marker/);
+  });
+
   it("uses the comment style of the file's language", () => {
     const source = ["# region: a", "a()", "# endregion"].join("\n");
     expect(extractRegions(source, "main.ts")).toEqual([]);
@@ -137,6 +156,8 @@ describe("langForFile", () => {
     expect(langForFile("a/main.ts")).toBe("typescript");
     expect(langForFile("a/main.py")).toBe("python");
     expect(langForFile("a/commands.sh")).toBe("bash");
+    expect(langForFile("a/chat.js")).toBe("javascript");
+    expect(langForFile("a/index.html")).toBe("html");
   });
 
   it("rejects unknown extensions", () => {

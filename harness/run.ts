@@ -3,6 +3,7 @@ import { existsSync, mkdtempSync, readFileSync } from "node:fs";
 import { tmpdir } from "node:os";
 import { join } from "node:path";
 import { costNdollars, formatUsd, isOverCap } from "#harness/budget.ts";
+import type { Usage } from "#harness/budget.ts";
 import { budgetRatesFor, parseCatalog } from "#harness/catalog.ts";
 import type { Catalog } from "#harness/catalog.ts";
 import { evaluateChecks, parseReport } from "#harness/report.ts";
@@ -15,6 +16,7 @@ export interface ExampleResult {
   status: ExampleStatus;
   costNdollars: bigint;
   errors: string[];
+  usage: Usage[];
 }
 
 export interface RunSummary {
@@ -33,7 +35,9 @@ export interface RunOptions {
   log: (line: string) => void;
 }
 
-export type Status = Record<string, { verifiedAt: string }>;
+type TokenTotals = Omit<Usage, "model">;
+
+export type Status = Record<string, { verifiedAt: string; usage: Record<string, TokenTotals> }>;
 
 const STDERR_TAIL_LINES = 20;
 const QUIET_ENV = { PYDANTIC_AI_NO_BANNER: "1" };
@@ -151,7 +155,8 @@ async function runOne(slug: string, catalog: Catalog, options: RunOptions) {
     const errors = [
       `no runnable example at examples/${slug} (needs package.json or pyproject.toml)`,
     ];
-    return { result: { slug, status: "failed" as const, costNdollars: 0n, errors }, priced: true };
+    const result = { slug, status: "failed" as const, costNdollars: 0n, errors, usage: [] };
+    return { result, priced: true };
   }
   const reportPath = join(mkdtempSync(join(tmpdir(), `saygm-${slug}-`)), "report.ndjson");
   const exit = await execute(
@@ -166,7 +171,7 @@ async function runOne(slug: string, catalog: Catalog, options: RunOptions) {
   const { cost, priced } = price(catalog, report, errors);
   errors.push(...checkOutcome(dir, exit, report, options));
   const status: ExampleStatus = errors.length === 0 ? "passed" : "failed";
-  return { result: { slug, status, costNdollars: cost, errors }, priced };
+  return { result: { slug, status, costNdollars: cost, errors, usage: report.usage }, priced };
 }
 
 export async function runExamples(options: RunOptions): Promise<RunSummary> {
@@ -181,6 +186,7 @@ export async function runExamples(options: RunOptions): Promise<RunSummary> {
       results.push({
         slug,
         status: "skipped",
+        usage: [],
         costNdollars: 0n,
         errors: ["skipped: the run already stopped"],
       });
@@ -210,12 +216,31 @@ export function modelOverrides(env: RunOptions["env"]): string[] {
     .toSorted();
 }
 
+function totalsByModel(usage: Usage[]): Record<string, TokenTotals> {
+  const totals: Record<string, TokenTotals> = {};
+  for (const { model, ...tokens } of usage) {
+    const sum = totals[model] ?? {
+      input_tokens: 0,
+      output_tokens: 0,
+      cache_read_input_tokens: 0,
+      cache_creation_input_tokens: 0,
+    };
+    sum.input_tokens += tokens.input_tokens;
+    sum.output_tokens += tokens.output_tokens;
+    sum.cache_read_input_tokens += tokens.cache_read_input_tokens;
+    sum.cache_creation_input_tokens += tokens.cache_creation_input_tokens;
+    totals[model] = sum;
+  }
+  return Object.fromEntries(Object.entries(totals).toSorted(([a], [b]) => (a < b ? -1 : 1)));
+}
+
+/** Records today and the token usage by model for passed examples; others keep their last entry. */
 export function updateStatus(previous: Status, results: ExampleResult[], now: Date): Status {
   const today = now.toISOString().slice(0, 10);
   const next: Status = { ...previous };
   for (const result of results) {
     if (result.status === "passed") {
-      next[result.slug] = { verifiedAt: today };
+      next[result.slug] = { verifiedAt: today, usage: totalsByModel(result.usage) };
     }
   }
   return Object.fromEntries(Object.entries(next).toSorted(([a], [b]) => (a < b ? -1 : 1)));
