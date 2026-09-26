@@ -111,5 +111,10 @@ URL that is not one of the catalog's `base_urls`, and checks each `commands.sh`.
   Outside pull requests it refreshes the catalog first, and a second job commits the refreshed
   `catalog.json` and `snippets/status.json`.
 
-Secrets: `SAYGM_API_KEY` as a repository secret for the live runs, and the same key as a
-Dependabot secret so dependency updates are tested too. Use a key with a small prepaid balance.
+Secrets: `SAYGM_API_KEY` as a repository secret for the live runs.
+
+Dependabot pull requests get no repository secrets, so they run the offline checks and the live
+job skips with a notice. A dependency update that breaks a recipe live shows up on the next
+weekly or catalog run after it merges. Testing Dependabot pull requests live would need a
+dedicated low-balance key stored as a Dependabot secret, because those pull requests run newly
+released package code.
