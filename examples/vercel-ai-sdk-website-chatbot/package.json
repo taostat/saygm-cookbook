@@ -8,9 +8,9 @@
     "start": "node main.ts"
   },
   "dependencies": {
-    "@ai-sdk/anthropic": "4.0.63",
-    "@ai-sdk/openai": "4.0.75",
+    "@ai-sdk/anthropic": "4.0.58",
+    "@ai-sdk/openai": "4.0.71",
     "@saygm-cookbook/shared": "workspace:*",
-    "ai": "7.0.114"
+    "ai": "7.0.107"
   }
 }
