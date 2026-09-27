@@ -23,6 +23,7 @@ describe("selectExamples", () => {
       "uv.lock",
       "package.json",
       "pyproject.toml",
+      "tsconfig.base.json",
       ".github/workflows/examples.yml",
     ]) {
       expect({ path, selected: selectExamples([path], all) }).toEqual({ path, selected: all });

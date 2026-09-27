@@ -102,6 +102,16 @@ role names a model, the API shape it must serve, whether it needs tools, and opt
 `pnpm check-drift` parses every recipe and fails on a hard-coded model id, an unknown role, or a
 URL that is not one of the catalog's `base_urls`, and checks each `commands.sh`.
 
+A recipe that calls another service lists that service's URL prefixes in its `checks.json`:
+
+```json
+{ "facts": {}, "external_urls": ["https://cdn.jsdelivr.net/gh/taostat/saygm-cookbook@"] }
+```
+
+Each prefix needs a host followed by `/`, and SayGM hosts are not accepted there: SayGM URLs must
+match a catalog base URL exactly. A bare `https://` joined to a host from a variable, as in
+`f"https://{domain}/api"`, also passes.
+
 ## CI
 
 - `checks.yml` runs the prek hooks on every pull request and on pushes to `main`.

@@ -18,6 +18,7 @@ members = [
     "saygm-cookbook-openai-agents-sdk-other-models",
     "saygm-cookbook-pydantic-ai-any-model",
     "saygm-cookbook-shared",
+    "saygm-cookbook-shopify-store-assistant",
 ]
 
 [[package]]
@@ -1153,6 +1154,33 @@ dependencies = [
 
 [package.metadata]
 requires-dist = [{ name = "httpx2", specifier = "==2.13.1" }]
+
+[[package]]
+name = "saygm-cookbook-shopify-store-assistant"
+version = "0.1.0"
+source = { virtual = "examples/shopify-store-assistant" }
+dependencies = [
+    { name = "httpx2" },
+    { name = "mcp" },
+    { name = "pydantic-ai-slim", extra = ["anthropic", "openai"] },
+    { name = "saygm-cookbook-shared" },
+]
+
+[package.dev-dependencies]
+dev = [
+    { name = "jsonschema" },
+]
+
+[package.metadata]
+requires-dist = [
+    { name = "httpx2", specifier = "==2.13.1" },
+    { name = "mcp", specifier = "==2.2.0" },
+    { name = "pydantic-ai-slim", extras = ["anthropic", "openai"], specifier = "==2.50.0" },
+    { name = "saygm-cookbook-shared", editable = "shared/python" },
+]
+
+[package.metadata.requires-dev]
+dev = [{ name = "jsonschema", specifier = "==4.26.0" }]
 
 [[package]]
 name = "sniffio"

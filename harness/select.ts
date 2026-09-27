@@ -5,6 +5,7 @@ const SHARED_FILES = new Set([
   "pnpm-lock.yaml",
   "pnpm-workspace.yaml",
   "pyproject.toml",
+  "tsconfig.base.json",
   "tsconfig.json",
   "uv.lock",
 ]);

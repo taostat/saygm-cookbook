@@ -18,6 +18,7 @@ members = [
   "examples/customer-support-agent",
   "examples/openai-agents-sdk-other-models",
   "examples/pydantic-ai-any-model",
+  "examples/shopify-store-assistant",
 ]
 
 [tool.uv.sources]
@@ -46,7 +47,8 @@ ignore = [
 convention = "google"
 
 [tool.pytest.ini_options]
-testpaths = ["shared/python/tests"]
+testpaths = ["shared/python/tests", "examples/shopify-store-assistant/tests"]
+pythonpath = ["examples/shopify-store-assistant"]
 addopts = ["--strict-markers", "-W", "error"]
 
 [tool.ty.rules]
