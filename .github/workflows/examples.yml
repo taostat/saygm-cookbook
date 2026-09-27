@@ -14,8 +14,39 @@ concurrency:
   cancel-in-progress: false
 
 jobs:
+  select:
+    name: Select examples
+    runs-on: ubuntu-24.04
+    timeout-minutes: 5
+    permissions:
+      contents: read # diff the pull request against its base
+    outputs:
+      slugs: ${{ steps.select.outputs.slugs }}
+    steps:
+      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
+        with:
+          fetch-depth: 0
+          persist-credentials: false
+      - uses: pnpm/action-setup@ea17c68df8912ef543352723c149a84f56e3d413 # v6.1.0
+      - uses: actions/setup-node@820762786026740c76f36085b0efc47a31fe5020 # v7.0.0
+        with:
+          node-version: 22
+      - name: Select examples
+        id: select
+        env:
+          EVENT_NAME: ${{ github.event_name }}
+          BASE_SHA: ${{ github.event.pull_request.base.sha }}
+        run: |
+          if [ "$EVENT_NAME" = "pull_request" ]; then
+            slugs=$(git diff --name-only "$BASE_SHA" HEAD | pnpm -s select-examples)
+          else
+            slugs=$(ls examples)
+          fi
+          echo "slugs=$(echo "$slugs" | xargs)" >>"$GITHUB_OUTPUT"
+
   live:
     name: Run examples against SayGM
+    needs: select
     # Pull requests from forks get no secrets; their offline checks still run in checks.yml.
     if: github.event_name != 'pull_request' || github.event.pull_request.head.repo.full_name == github.repository
     runs-on: ubuntu-24.04
@@ -25,7 +56,6 @@ jobs:
     steps:
       - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
         with:
-          fetch-depth: 0
           persist-credentials: false
       - uses: pnpm/action-setup@ea17c68df8912ef543352723c149a84f56e3d413 # v6.1.0
       - uses: actions/setup-node@820762786026740c76f36085b0efc47a31fe5020 # v7.0.0
@@ -47,25 +77,12 @@ jobs:
           pnpm check-drift
           pnpm extract-snippets --check
 
-      - name: Select examples
-        id: select
-        env:
-          EVENT_NAME: ${{ github.event_name }}
-          BASE_SHA: ${{ github.event.pull_request.base.sha }}
-        run: |
-          if [ "$EVENT_NAME" = "pull_request" ]; then
-            slugs=$(git diff --name-only "$BASE_SHA" HEAD | pnpm -s select-examples)
-          else
-            slugs=$(ls examples)
-          fi
-          echo "slugs=$(echo "$slugs" | xargs)" >>"$GITHUB_OUTPUT"
-
       - name: Run examples
-        if: steps.select.outputs.slugs != ''
+        if: needs.select.outputs.slugs != ''
         env:
           SAYGM_API_KEY: ${{ secrets.SAYGM_API_KEY }}
           SAYGM_RUN_CAP_USD: "0.50"
-          SLUGS: ${{ steps.select.outputs.slugs }}
+          SLUGS: ${{ needs.select.outputs.slugs }}
           PR_AUTHOR: ${{ github.event.pull_request.user.login }}
         run: |
           if [ -z "$SAYGM_API_KEY" ]; then
@@ -91,7 +108,10 @@ jobs:
 
   shopify-surface:
     name: Check the Shopify UCP surface and pinned profile
-    if: github.event_name == 'schedule' || github.event_name == 'pull_request'
+    needs: select
+    if: >-
+      contains(fromJSON('["schedule", "pull_request"]'), github.event_name) &&
+      contains(format(' {0} ', needs.select.outputs.slugs), ' shopify-store-assistant ')
     runs-on: ubuntu-24.04
     timeout-minutes: 10
     permissions:
