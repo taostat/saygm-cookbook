@@ -19,13 +19,13 @@
   },
   "devDependencies": {
     "@saygm-cookbook/shared": "workspace:*",
-    "@types/node": "22.20.4",
-    "oxc-parser": "0.150.0",
-    "oxfmt": "0.68.0",
-    "oxlint": "1.83.0",
+    "@types/node": "26.6.3",
+    "oxc-parser": "0.151.0",
+    "oxfmt": "0.70.0",
+    "oxlint": "1.85.0",
     "typescript": "7.0.2",
-    "vite": "8.3.0",
-    "vitest": "5.0.1"
+    "vite": "8.3.1",
+    "vitest": "5.0.2"
   },
   "engines": {
     "node": ">=22.18"
