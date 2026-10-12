@@ -1,38 +1,38 @@
 {
   "build-ai-agent-claude-python": {
-    "verifiedAt": "2026-10-05",
+    "verifiedAt": "2026-10-12",
     "usage": {
       "claude-haiku-4-5": {
-        "input_tokens": 2226,
-        "output_tokens": 226,
+        "input_tokens": 2190,
+        "output_tokens": 183,
         "cache_read_input_tokens": 0,
         "cache_creation_input_tokens": 0
       }
     }
   },
   "customer-support-agent": {
-    "verifiedAt": "2026-10-05",
+    "verifiedAt": "2026-10-12",
     "usage": {
       "claude-haiku-4-5": {
         "input_tokens": 2048,
-        "output_tokens": 231,
+        "output_tokens": 257,
         "cache_read_input_tokens": 0,
         "cache_creation_input_tokens": 0
       },
       "deepseek-v4-flash-0731": {
-        "input_tokens": 2360,
-        "output_tokens": 569,
+        "input_tokens": 2357,
+        "output_tokens": 397,
         "cache_read_input_tokens": 0,
         "cache_creation_input_tokens": 0
       }
     }
   },
   "openai-agents-sdk-other-models": {
-    "verifiedAt": "2026-10-05",
+    "verifiedAt": "2026-10-12",
     "usage": {
       "deepseek-v4-flash-0731": {
         "input_tokens": 725,
-        "output_tokens": 132,
+        "output_tokens": 125,
         "cache_read_input_tokens": 0,
         "cache_creation_input_tokens": 0
       },
@@ -45,47 +45,47 @@
     }
   },
   "pydantic-ai-any-model": {
-    "verifiedAt": "2026-10-05",
+    "verifiedAt": "2026-10-12",
     "usage": {
       "claude-haiku-4-5": {
         "input_tokens": 1268,
-        "output_tokens": 248,
+        "output_tokens": 239,
         "cache_read_input_tokens": 0,
         "cache_creation_input_tokens": 0
       },
       "deepseek-v4-flash-0731": {
-        "input_tokens": 697,
-        "output_tokens": 130,
+        "input_tokens": 696,
+        "output_tokens": 119,
         "cache_read_input_tokens": 0,
         "cache_creation_input_tokens": 0
       },
       "gpt-5.4-nano": {
         "input_tokens": 175,
-        "output_tokens": 70,
+        "output_tokens": 62,
         "cache_read_input_tokens": 0,
         "cache_creation_input_tokens": 0
       }
     }
   },
   "shopify-store-assistant": {
-    "verifiedAt": "2026-10-05",
+    "verifiedAt": "2026-10-12",
     "usage": {
       "claude-haiku-4-5": {
         "input_tokens": 2387,
-        "output_tokens": 132,
+        "output_tokens": 119,
         "cache_read_input_tokens": 0,
         "cache_creation_input_tokens": 0
       },
       "deepseek-v4-flash-0731": {
-        "input_tokens": 7062,
-        "output_tokens": 1220,
+        "input_tokens": 14809,
+        "output_tokens": 1956,
         "cache_read_input_tokens": 0,
         "cache_creation_input_tokens": 0
       }
     }
   },
   "vercel-ai-sdk-website-chatbot": {
-    "verifiedAt": "2026-10-05",
+    "verifiedAt": "2026-10-12",
     "usage": {
       "claude-haiku-4-5": {
         "input_tokens": 34,
@@ -95,7 +95,7 @@
       },
       "deepseek-v4-flash-0731": {
         "input_tokens": 31,
-        "output_tokens": 23,
+        "output_tokens": 18,
         "cache_read_input_tokens": 0,
         "cache_creation_input_tokens": 0
       }
