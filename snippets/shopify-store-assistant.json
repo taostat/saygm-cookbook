@@ -29,7 +29,7 @@
     "chat": {
       "lang": "python",
       "file": "examples/shopify-store-assistant/main.py",
-      "code": "async def chat(questions: list[str], model: Model | None = None) -> list[AgentRunResult[str]]:\n    results = []\n    async with open_store(STORE_DOMAIN, PROFILE_URL) as shop:\n        for question in questions:\n            shop.calls_left = store.CALLS_PER_QUESTION\n            result = await agent.run(question, deps=shop, model=model)\n            print(f\"> {question}\\n{result.output}\\n\")\n            results.append(result)\n    return results\n\n\nshoes, returns = asyncio.run(\n    chat(\n        [\n            (\n                \"I want comfortable shoes for walking. What do you suggest, \"\n                \"and which sizes are in stock for your top pick?\"\n            ),\n            \"What is your return policy?\",\n        ]\n    )\n)"
+      "code": "async def chat(questions: list[str], model: Model | None = None) -> list[AgentRunResult[str]]:\n    results = []\n    async with open_store(STORE_DOMAIN, PROFILE_URL) as shop:\n        for question in questions:\n            shop.calls_left = store.CALLS_PER_QUESTION\n            result = await agent.run(question, deps=shop, model=model)\n            print(f\"> {question}\\n{result.output}\\n\")\n            results.append(result)\n    return results\n\n\nshoes, returns = asyncio.run(\n    chat(\n        [\n            (\n                \"I want comfortable shoes for walking. What do you suggest, \"\n                \"and is your top pick in stock?\"\n            ),\n            \"What is your return policy?\",\n        ]\n    )\n)"
     },
     "claude": {
       "lang": "python",

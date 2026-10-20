@@ -96,7 +96,7 @@ shoes, returns = asyncio.run(
         [
             (
                 "I want comfortable shoes for walking. What do you suggest, "
-                "and which sizes are in stock for your top pick?"
+                "and is your top pick in stock?"
             ),
             "What is your return policy?",
         ]
