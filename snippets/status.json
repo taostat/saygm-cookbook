@@ -1,67 +1,67 @@
 {
   "build-ai-agent-claude-python": {
-    "verifiedAt": "2026-10-26",
+    "verifiedAt": "2026-11-02",
     "usage": {
       "claude-haiku-4-5": {
-        "input_tokens": 2190,
-        "output_tokens": 180,
+        "input_tokens": 2224,
+        "output_tokens": 222,
         "cache_read_input_tokens": 0,
         "cache_creation_input_tokens": 0
       }
     }
   },
   "customer-support-agent": {
-    "verifiedAt": "2026-10-26",
+    "verifiedAt": "2026-11-02",
     "usage": {
       "claude-haiku-4-5": {
         "input_tokens": 2048,
-        "output_tokens": 263,
+        "output_tokens": 232,
         "cache_read_input_tokens": 0,
         "cache_creation_input_tokens": 0
       },
       "deepseek-v4-flash-0731": {
-        "input_tokens": 2855,
-        "output_tokens": 700,
+        "input_tokens": 2781,
+        "output_tokens": 762,
         "cache_read_input_tokens": 0,
         "cache_creation_input_tokens": 0
       }
     }
   },
   "openai-agents-sdk-other-models": {
-    "verifiedAt": "2026-10-26",
+    "verifiedAt": "2026-11-02",
     "usage": {
       "deepseek-v4-flash-0731": {
-        "input_tokens": 900,
-        "output_tokens": 137,
+        "input_tokens": 899,
+        "output_tokens": 121,
         "cache_read_input_tokens": 0,
         "cache_creation_input_tokens": 0
       },
       "gpt-5.4-nano": {
         "input_tokens": 201,
-        "output_tokens": 47,
+        "output_tokens": 44,
         "cache_read_input_tokens": 0,
         "cache_creation_input_tokens": 0
       }
     }
   },
   "pydantic-ai-any-model": {
-    "verifiedAt": "2026-10-26",
+    "verifiedAt": "2026-11-02",
     "usage": {
       "claude-haiku-4-5": {
         "input_tokens": 1257,
-        "output_tokens": 226,
+        "output_tokens": 242,
         "cache_read_input_tokens": 0,
         "cache_creation_input_tokens": 0
       },
       "deepseek-v4-flash-0731": {
-        "input_tokens": 868,
-        "output_tokens": 128,
+        "input_tokens": 872,
+        "output_tokens": 156,
         "cache_read_input_tokens": 0,
         "cache_creation_input_tokens": 0
       },
       "gpt-5.4-nano": {
         "input_tokens": 175,
-        "output_tokens": 69,
+        "output_tokens": 70,
         "cache_read_input_tokens": 0,
         "cache_creation_input_tokens": 0
       }
