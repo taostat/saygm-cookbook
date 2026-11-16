@@ -29,11 +29,11 @@
       "tools": true,
       "confidential": false,
       "pricing": {
-        "input_per_mtok_ndollars": 10000000000,
-        "output_per_mtok_ndollars": 50000000000,
-        "cache_read_per_mtok_ndollars": 1000000000,
-        "cache_write_5m_per_mtok_ndollars": 12500000000,
-        "cache_write_1h_per_mtok_ndollars": 20000000000
+        "input_per_mtok_ndollars": 9259700000,
+        "output_per_mtok_ndollars": 46298500000,
+        "cache_read_per_mtok_ndollars": 925970000,
+        "cache_write_5m_per_mtok_ndollars": 11574625000,
+        "cache_write_1h_per_mtok_ndollars": 18519400000
       },
       "budget_rates": {
         "input": 10000000000,
@@ -50,11 +50,11 @@
       "tools": true,
       "confidential": false,
       "pricing": {
-        "input_per_mtok_ndollars": 10000000000,
-        "output_per_mtok_ndollars": 50000000000,
-        "cache_read_per_mtok_ndollars": 250000000,
-        "cache_write_5m_per_mtok_ndollars": 12500000000,
-        "cache_write_1h_per_mtok_ndollars": 20000000000
+        "input_per_mtok_ndollars": 9991000000,
+        "output_per_mtok_ndollars": 49955000000,
+        "cache_read_per_mtok_ndollars": 249775000,
+        "cache_write_5m_per_mtok_ndollars": 12488750000,
+        "cache_write_1h_per_mtok_ndollars": 19982000000
       },
       "budget_rates": {
         "input": 10000000000,
@@ -71,11 +71,11 @@
       "tools": true,
       "confidential": false,
       "pricing": {
-        "input_per_mtok_ndollars": 1000000000,
-        "output_per_mtok_ndollars": 5000000000,
-        "cache_read_per_mtok_ndollars": 100000000,
-        "cache_write_5m_per_mtok_ndollars": 1250000000,
-        "cache_write_1h_per_mtok_ndollars": 2000000000
+        "input_per_mtok_ndollars": 865612000,
+        "output_per_mtok_ndollars": 4328060000,
+        "cache_read_per_mtok_ndollars": 86561200,
+        "cache_write_5m_per_mtok_ndollars": 1082015000,
+        "cache_write_1h_per_mtok_ndollars": 1731224000
       },
       "budget_rates": {
         "input": 1000000000,
@@ -92,17 +92,17 @@
       "tools": true,
       "confidential": false,
       "pricing": {
-        "input_per_mtok_ndollars": 100000000,
-        "output_per_mtok_ndollars": 500000000,
-        "cache_read_per_mtok_ndollars": 10000000,
-        "cache_write_5m_per_mtok_ndollars": 125000000,
-        "cache_write_1h_per_mtok_ndollars": 200000000,
+        "input_per_mtok_ndollars": 99910000,
+        "output_per_mtok_ndollars": 499550000,
+        "cache_read_per_mtok_ndollars": 9991000,
+        "cache_write_5m_per_mtok_ndollars": 124887500,
+        "cache_write_1h_per_mtok_ndollars": 199820000,
         "long_context_threshold_tokens": 100000,
-        "long_context_input_per_mtok_ndollars": 500000000,
-        "long_context_output_per_mtok_ndollars": 2500000000,
-        "long_context_cache_read_per_mtok_ndollars": 50000000,
-        "long_context_cache_write_5m_per_mtok_ndollars": 625000000,
-        "long_context_cache_write_1h_per_mtok_ndollars": 1000000000
+        "long_context_input_per_mtok_ndollars": 499550000,
+        "long_context_output_per_mtok_ndollars": 2497750000,
+        "long_context_cache_read_per_mtok_ndollars": 49955000,
+        "long_context_cache_write_5m_per_mtok_ndollars": 624437500,
+        "long_context_cache_write_1h_per_mtok_ndollars": 999100000
       },
       "budget_rates": {
         "input": 500000000,
@@ -119,11 +119,11 @@
       "tools": true,
       "confidential": false,
       "pricing": {
-        "input_per_mtok_ndollars": 5000000000,
-        "output_per_mtok_ndollars": 25000000000,
-        "cache_read_per_mtok_ndollars": 500000000,
-        "cache_write_5m_per_mtok_ndollars": 6250000000,
-        "cache_write_1h_per_mtok_ndollars": 10000000000
+        "input_per_mtok_ndollars": 4328060000,
+        "output_per_mtok_ndollars": 21640300000,
+        "cache_read_per_mtok_ndollars": 432806000,
+        "cache_write_5m_per_mtok_ndollars": 5410075000,
+        "cache_write_1h_per_mtok_ndollars": 8656120000
       },
       "budget_rates": {
         "input": 5000000000,
@@ -140,11 +140,11 @@
       "tools": true,
       "confidential": false,
       "pricing": {
-        "input_per_mtok_ndollars": 5000000000,
-        "output_per_mtok_ndollars": 25000000000,
-        "cache_read_per_mtok_ndollars": 500000000,
-        "cache_write_5m_per_mtok_ndollars": 6250000000,
-        "cache_write_1h_per_mtok_ndollars": 10000000000
+        "input_per_mtok_ndollars": 4328060000,
+        "output_per_mtok_ndollars": 21640300000,
+        "cache_read_per_mtok_ndollars": 432806000,
+        "cache_write_5m_per_mtok_ndollars": 5410075000,
+        "cache_write_1h_per_mtok_ndollars": 8656120000
       },
       "budget_rates": {
         "input": 5000000000,
@@ -161,11 +161,11 @@
       "tools": true,
       "confidential": false,
       "pricing": {
-        "input_per_mtok_ndollars": 5000000000,
-        "output_per_mtok_ndollars": 25000000000,
-        "cache_read_per_mtok_ndollars": 500000000,
-        "cache_write_5m_per_mtok_ndollars": 6250000000,
-        "cache_write_1h_per_mtok_ndollars": 10000000000
+        "input_per_mtok_ndollars": 4231240000,
+        "output_per_mtok_ndollars": 21156200000,
+        "cache_read_per_mtok_ndollars": 423124000,
+        "cache_write_5m_per_mtok_ndollars": 5289050000,
+        "cache_write_1h_per_mtok_ndollars": 8462480000
       },
       "budget_rates": {
         "input": 5000000000,
@@ -182,17 +182,38 @@
       "tools": true,
       "confidential": false,
       "pricing": {
-        "input_per_mtok_ndollars": 4000000000,
-        "output_per_mtok_ndollars": 20000000000,
-        "cache_read_per_mtok_ndollars": 200000000,
-        "cache_write_5m_per_mtok_ndollars": 5000000000,
-        "cache_write_1h_per_mtok_ndollars": 8000000000
+        "input_per_mtok_ndollars": 3462860000,
+        "output_per_mtok_ndollars": 17314300000,
+        "cache_read_per_mtok_ndollars": 173143000,
+        "cache_write_5m_per_mtok_ndollars": 4328575000,
+        "cache_write_1h_per_mtok_ndollars": 6925720000
       },
       "budget_rates": {
         "input": 4000000000,
         "output": 20000000000,
         "cache_read": 4000000000,
         "cache_write": 8000000000
+      }
+    },
+    "claude-sonnet-4-6": {
+      "api_shapes": [
+        "messages"
+      ],
+      "available": true,
+      "tools": true,
+      "confidential": false,
+      "pricing": {
+        "input_per_mtok_ndollars": 2997300000,
+        "output_per_mtok_ndollars": 14986500000,
+        "cache_read_per_mtok_ndollars": 299730000,
+        "cache_write_5m_per_mtok_ndollars": 3746625000,
+        "cache_write_1h_per_mtok_ndollars": 5994600000
+      },
+      "budget_rates": {
+        "input": 3000000000,
+        "output": 15000000000,
+        "cache_read": 3000000000,
+        "cache_write": 6000000000
       }
     },
     "claude-sonnet-5": {
@@ -203,11 +224,11 @@
       "tools": true,
       "confidential": false,
       "pricing": {
-        "input_per_mtok_ndollars": 2000000000,
-        "output_per_mtok_ndollars": 10000000000,
-        "cache_read_per_mtok_ndollars": 200000000,
-        "cache_write_5m_per_mtok_ndollars": 2500000000,
-        "cache_write_1h_per_mtok_ndollars": 4000000000
+        "input_per_mtok_ndollars": 1731430000,
+        "output_per_mtok_ndollars": 8657150000,
+        "cache_read_per_mtok_ndollars": 173143000,
+        "cache_write_5m_per_mtok_ndollars": 2164287500,
+        "cache_write_1h_per_mtok_ndollars": 3462860000
       },
       "budget_rates": {
         "input": 2000000000,
@@ -224,11 +245,11 @@
       "tools": true,
       "confidential": false,
       "pricing": {
-        "input_per_mtok_ndollars": 2000000000,
-        "output_per_mtok_ndollars": 10000000000,
-        "cache_read_per_mtok_ndollars": 100000000,
-        "cache_write_5m_per_mtok_ndollars": 2500000000,
-        "cache_write_1h_per_mtok_ndollars": 4000000000
+        "input_per_mtok_ndollars": 1998200000,
+        "output_per_mtok_ndollars": 9991000000,
+        "cache_read_per_mtok_ndollars": 99910000,
+        "cache_write_5m_per_mtok_ndollars": 2497750000,
+        "cache_write_1h_per_mtok_ndollars": 3996400000
       },
       "budget_rates": {
         "input": 2000000000,
@@ -264,9 +285,9 @@
       "tools": true,
       "confidential": false,
       "pricing": {
-        "input_per_mtok_ndollars": 45320000,
-        "output_per_mtok_ndollars": 135960000,
-        "cache_read_per_mtok_ndollars": 1442000
+        "input_per_mtok_ndollars": 58916000,
+        "output_per_mtok_ndollars": 176748000,
+        "cache_read_per_mtok_ndollars": 1874600
       },
       "budget_rates": {
         "input": 440000000,
@@ -302,9 +323,9 @@
       "tools": true,
       "confidential": false,
       "pricing": {
-        "input_per_mtok_ndollars": 46350000,
-        "output_per_mtok_ndollars": 185400000,
-        "cache_read_per_mtok_ndollars": 927000
+        "input_per_mtok_ndollars": 37080000,
+        "output_per_mtok_ndollars": 148320000,
+        "cache_read_per_mtok_ndollars": 741600
       },
       "budget_rates": {
         "input": 300000000,
@@ -321,47 +342,9 @@
       "tools": true,
       "confidential": false,
       "pricing": {
-        "input_per_mtok_ndollars": 92700000,
-        "output_per_mtok_ndollars": 370800000,
-        "cache_read_per_mtok_ndollars": 1854000
-      },
-      "budget_rates": {
-        "input": 300000000,
-        "output": 1200000000,
-        "cache_read": 300000000,
-        "cache_write": 300000000
-      }
-    },
-    "deepseek-v4.1-flash-1017-tee": {
-      "api_shapes": [
-        "chat.completions"
-      ],
-      "available": true,
-      "tools": true,
-      "confidential": true,
-      "pricing": {
-        "input_per_mtok_ndollars": 278100000,
-        "output_per_mtok_ndollars": 1112400000,
-        "cache_read_per_mtok_ndollars": 5562000
-      },
-      "budget_rates": {
-        "input": 300000000,
-        "output": 1200000000,
-        "cache_read": 300000000,
-        "cache_write": 300000000
-      }
-    },
-    "deepseek-v4.1-flash-tee": {
-      "api_shapes": [
-        "chat.completions"
-      ],
-      "available": true,
-      "tools": true,
-      "confidential": true,
-      "pricing": {
-        "input_per_mtok_ndollars": 262650000,
-        "output_per_mtok_ndollars": 1050600000,
-        "cache_read_per_mtok_ndollars": 5253000
+        "input_per_mtok_ndollars": 55620000,
+        "output_per_mtok_ndollars": 222480000,
+        "cache_read_per_mtok_ndollars": 1112400
       },
       "budget_rates": {
         "input": 300000000,
@@ -390,12 +373,12 @@
       "tools": true,
       "confidential": false,
       "pricing": {
-        "input_per_mtok_ndollars": 1236000000,
-        "output_per_mtok_ndollars": 7416000000,
-        "audio_input_per_mtok_ndollars": 1236000000,
-        "audio_output_per_mtok_ndollars": 7416000000,
-        "image_input_per_mtok_ndollars": 1236000000,
-        "image_output_per_mtok_ndollars": 74160000000
+        "input_per_mtok_ndollars": 1194800000,
+        "output_per_mtok_ndollars": 7168800000,
+        "audio_input_per_mtok_ndollars": 1194800000,
+        "audio_output_per_mtok_ndollars": 7168800000,
+        "image_input_per_mtok_ndollars": 1194800000,
+        "image_output_per_mtok_ndollars": 71688000000
       },
       "budget_rates": {
         "input": 2000000000,
@@ -412,12 +395,12 @@
       "tools": true,
       "confidential": false,
       "pricing": {
-        "input_per_mtok_ndollars": 309000000,
-        "output_per_mtok_ndollars": 1854000000,
-        "audio_input_per_mtok_ndollars": 309000000,
-        "audio_output_per_mtok_ndollars": 1854000000,
-        "image_input_per_mtok_ndollars": 309000000,
-        "image_output_per_mtok_ndollars": 37080000000
+        "input_per_mtok_ndollars": 298700000,
+        "output_per_mtok_ndollars": 1792200000,
+        "audio_input_per_mtok_ndollars": 298700000,
+        "audio_output_per_mtok_ndollars": 1792200000,
+        "image_input_per_mtok_ndollars": 298700000,
+        "image_output_per_mtok_ndollars": 35844000000
       },
       "budget_rates": {
         "input": 500000000,
@@ -435,12 +418,12 @@
       "tools": true,
       "confidential": false,
       "pricing": {
-        "input_per_mtok_ndollars": 154500000,
-        "output_per_mtok_ndollars": 927000000,
-        "cache_read_per_mtok_ndollars": 15450000,
-        "audio_input_per_mtok_ndollars": 309000000,
-        "audio_output_per_mtok_ndollars": 927000000,
-        "image_input_per_mtok_ndollars": 154500000
+        "input_per_mtok_ndollars": 149350000,
+        "output_per_mtok_ndollars": 896100000,
+        "cache_read_per_mtok_ndollars": 14935000,
+        "audio_input_per_mtok_ndollars": 298700000,
+        "audio_output_per_mtok_ndollars": 896100000,
+        "image_input_per_mtok_ndollars": 149350000
       },
       "budget_rates": {
         "input": 250000000,
@@ -457,12 +440,12 @@
       "tools": true,
       "confidential": false,
       "pricing": {
-        "input_per_mtok_ndollars": 154500000,
-        "output_per_mtok_ndollars": 927000000,
-        "audio_input_per_mtok_ndollars": 154500000,
-        "audio_output_per_mtok_ndollars": 927000000,
-        "image_input_per_mtok_ndollars": 154500000,
-        "image_output_per_mtok_ndollars": 18540000000
+        "input_per_mtok_ndollars": 149350000,
+        "output_per_mtok_ndollars": 896100000,
+        "audio_input_per_mtok_ndollars": 149350000,
+        "audio_output_per_mtok_ndollars": 896100000,
+        "image_input_per_mtok_ndollars": 149350000,
+        "image_output_per_mtok_ndollars": 17922000000
       },
       "budget_rates": {
         "input": 250000000,
@@ -480,16 +463,16 @@
       "tools": true,
       "confidential": false,
       "pricing": {
-        "input_per_mtok_ndollars": 1236000000,
-        "output_per_mtok_ndollars": 7416000000,
-        "cache_read_per_mtok_ndollars": 123600000,
-        "audio_input_per_mtok_ndollars": 1236000000,
-        "audio_output_per_mtok_ndollars": 7416000000,
-        "image_input_per_mtok_ndollars": 1236000000,
+        "input_per_mtok_ndollars": 1194800000,
+        "output_per_mtok_ndollars": 7168800000,
+        "cache_read_per_mtok_ndollars": 119480000,
+        "audio_input_per_mtok_ndollars": 1194800000,
+        "audio_output_per_mtok_ndollars": 7168800000,
+        "image_input_per_mtok_ndollars": 1194800000,
         "long_context_threshold_tokens": 200000,
-        "long_context_input_per_mtok_ndollars": 2472000000,
-        "long_context_output_per_mtok_ndollars": 11124000000,
-        "long_context_cache_read_per_mtok_ndollars": 247200000
+        "long_context_input_per_mtok_ndollars": 2389600000,
+        "long_context_output_per_mtok_ndollars": 10753200000,
+        "long_context_cache_read_per_mtok_ndollars": 238960000
       },
       "budget_rates": {
         "input": 4000000000,
@@ -507,12 +490,12 @@
       "tools": true,
       "confidential": false,
       "pricing": {
-        "input_per_mtok_ndollars": 185400000,
-        "output_per_mtok_ndollars": 1545000000,
-        "cache_read_per_mtok_ndollars": 18540000,
-        "audio_input_per_mtok_ndollars": 185400000,
-        "audio_output_per_mtok_ndollars": 1545000000,
-        "image_input_per_mtok_ndollars": 185400000
+        "input_per_mtok_ndollars": 179220000,
+        "output_per_mtok_ndollars": 1493500000,
+        "cache_read_per_mtok_ndollars": 17922000,
+        "audio_input_per_mtok_ndollars": 179220000,
+        "audio_output_per_mtok_ndollars": 1493500000,
+        "image_input_per_mtok_ndollars": 179220000
       },
       "budget_rates": {
         "input": 300000000,
@@ -530,12 +513,12 @@
       "tools": true,
       "confidential": false,
       "pricing": {
-        "input_per_mtok_ndollars": 463500000,
-        "output_per_mtok_ndollars": 2317500000,
-        "cache_read_per_mtok_ndollars": 46350000,
-        "audio_input_per_mtok_ndollars": 463500000,
-        "audio_output_per_mtok_ndollars": 2317500000,
-        "image_input_per_mtok_ndollars": 463500000
+        "input_per_mtok_ndollars": 448050000,
+        "output_per_mtok_ndollars": 2240250000,
+        "cache_read_per_mtok_ndollars": 44805000,
+        "audio_input_per_mtok_ndollars": 448050000,
+        "audio_output_per_mtok_ndollars": 2240250000,
+        "image_input_per_mtok_ndollars": 448050000
       },
       "budget_rates": {
         "input": 750000000,
@@ -553,12 +536,12 @@
       "tools": true,
       "confidential": false,
       "pricing": {
-        "input_per_mtok_ndollars": 409425000,
-        "output_per_mtok_ndollars": 2047125000,
-        "cache_read_per_mtok_ndollars": 40942500,
-        "audio_input_per_mtok_ndollars": 409425000,
-        "audio_output_per_mtok_ndollars": 2047125000,
-        "image_input_per_mtok_ndollars": 409425000
+        "input_per_mtok_ndollars": 386250000,
+        "output_per_mtok_ndollars": 1931250000,
+        "cache_read_per_mtok_ndollars": 38625000,
+        "audio_input_per_mtok_ndollars": 386250000,
+        "audio_output_per_mtok_ndollars": 1931250000,
+        "image_input_per_mtok_ndollars": 386250000
       },
       "budget_rates": {
         "input": 750000000,
@@ -576,12 +559,35 @@
       "tools": true,
       "confidential": false,
       "pricing": {
-        "input_per_mtok_ndollars": 1236000000,
-        "output_per_mtok_ndollars": 6180000000,
-        "cache_read_per_mtok_ndollars": 61800000,
-        "audio_input_per_mtok_ndollars": 1236000000,
-        "audio_output_per_mtok_ndollars": 6180000000,
-        "image_input_per_mtok_ndollars": 1236000000
+        "input_per_mtok_ndollars": 1194800000,
+        "output_per_mtok_ndollars": 5974000000,
+        "cache_read_per_mtok_ndollars": 59740000,
+        "audio_input_per_mtok_ndollars": 1194800000,
+        "audio_output_per_mtok_ndollars": 5974000000,
+        "image_input_per_mtok_ndollars": 1194800000
+      },
+      "budget_rates": {
+        "input": 2000000000,
+        "output": 10000000000,
+        "cache_read": 2000000000,
+        "cache_write": 2000000000
+      }
+    },
+    "gemini-4-carbon": {
+      "api_shapes": [
+        "generateContent",
+        "streamGenerateContent"
+      ],
+      "available": true,
+      "tools": true,
+      "confidential": false,
+      "pricing": {
+        "input_per_mtok_ndollars": 1194800000,
+        "output_per_mtok_ndollars": 5974000000,
+        "cache_read_per_mtok_ndollars": 59740000,
+        "audio_input_per_mtok_ndollars": 1194800000,
+        "audio_output_per_mtok_ndollars": 5974000000,
+        "image_input_per_mtok_ndollars": 1194800000
       },
       "budget_rates": {
         "input": 2000000000,
@@ -598,12 +604,12 @@
       "tools": true,
       "confidential": false,
       "pricing": {
-        "input_per_mtok_ndollars": 927000000,
-        "output_per_mtok_ndollars": 4635000000,
-        "audio_input_per_mtok_ndollars": 927000000,
-        "audio_output_per_mtok_ndollars": 4635000000,
-        "image_input_per_mtok_ndollars": 927000000,
-        "image_output_per_mtok_ndollars": 18540000000
+        "input_per_mtok_ndollars": 896100000,
+        "output_per_mtok_ndollars": 4480500000,
+        "audio_input_per_mtok_ndollars": 896100000,
+        "audio_output_per_mtok_ndollars": 4480500000,
+        "image_input_per_mtok_ndollars": 896100000,
+        "image_output_per_mtok_ndollars": 17922000000
       },
       "budget_rates": {
         "input": 1500000000,
@@ -639,9 +645,9 @@
       "tools": true,
       "confidential": true,
       "pricing": {
-        "input_per_mtok_ndollars": 1297800000,
-        "output_per_mtok_ndollars": 4078800000,
-        "cache_read_per_mtok_ndollars": 241020000
+        "input_per_mtok_ndollars": 1189650000,
+        "output_per_mtok_ndollars": 3738900000,
+        "cache_read_per_mtok_ndollars": 220935000
       },
       "budget_rates": {
         "input": 1400000000,
@@ -658,9 +664,9 @@
       "tools": true,
       "confidential": false,
       "pricing": {
-        "input_per_mtok_ndollars": 620060000,
-        "output_per_mtok_ndollars": 1948760000,
-        "cache_read_per_mtok_ndollars": 115154000
+        "input_per_mtok_ndollars": 581126000,
+        "output_per_mtok_ndollars": 1826396000,
+        "cache_read_per_mtok_ndollars": 107923400
       },
       "budget_rates": {
         "input": 1400000000,
@@ -677,9 +683,9 @@
       "tools": true,
       "confidential": true,
       "pricing": {
-        "input_per_mtok_ndollars": 1225700000,
-        "output_per_mtok_ndollars": 3852200000,
-        "cache_read_per_mtok_ndollars": 262650000
+        "input_per_mtok_ndollars": 1369900000,
+        "output_per_mtok_ndollars": 4305400000,
+        "cache_read_per_mtok_ndollars": 293550000
       },
       "budget_rates": {
         "input": 1400000000,
@@ -696,9 +702,9 @@
       "tools": true,
       "confidential": false,
       "pricing": {
-        "input_per_mtok_ndollars": 719558000,
-        "output_per_mtok_ndollars": 2261468000,
-        "cache_read_per_mtok_ndollars": 133632200
+        "input_per_mtok_ndollars": 785890000,
+        "output_per_mtok_ndollars": 2469940000,
+        "cache_read_per_mtok_ndollars": 145951000
       },
       "budget_rates": {
         "input": 1400000000,
@@ -745,25 +751,6 @@
         "cache_write": 150000000
       }
     },
-    "glm-5.3-tee": {
-      "api_shapes": [
-        "chat.completions"
-      ],
-      "available": true,
-      "tools": true,
-      "confidential": true,
-      "pricing": {
-        "input_per_mtok_ndollars": 1225700000,
-        "output_per_mtok_ndollars": 3852200000,
-        "cache_read_per_mtok_ndollars": 227630000
-      },
-      "budget_rates": {
-        "input": 1400000000,
-        "output": 4400000000,
-        "cache_read": 1400000000,
-        "cache_write": 1400000000
-      }
-    },
     "google/veo-3.1-fast": {
       "api_shapes": [
         "videos"
@@ -785,13 +772,13 @@
       "tools": true,
       "confidential": false,
       "pricing": {
-        "input_per_mtok_ndollars": 1545000000,
-        "output_per_mtok_ndollars": 9270000000,
-        "cache_read_per_mtok_ndollars": 154500000,
+        "input_per_mtok_ndollars": 1287500000,
+        "output_per_mtok_ndollars": 7725000000,
+        "cache_read_per_mtok_ndollars": 128750000,
         "long_context_threshold_tokens": 272000,
-        "long_context_input_per_mtok_ndollars": 3090000000,
-        "long_context_output_per_mtok_ndollars": 13905000000,
-        "long_context_cache_read_per_mtok_ndollars": 309000000
+        "long_context_input_per_mtok_ndollars": 2575000000,
+        "long_context_output_per_mtok_ndollars": 11587500000,
+        "long_context_cache_read_per_mtok_ndollars": 257500000
       },
       "budget_rates": {
         "input": 5000000000,
@@ -809,9 +796,9 @@
       "tools": true,
       "confidential": false,
       "pricing": {
-        "input_per_mtok_ndollars": 463500000,
-        "output_per_mtok_ndollars": 2781000000,
-        "cache_read_per_mtok_ndollars": 46350000
+        "input_per_mtok_ndollars": 386250000,
+        "output_per_mtok_ndollars": 2317500000,
+        "cache_read_per_mtok_ndollars": 38625000
       },
       "budget_rates": {
         "input": 750000000,
@@ -829,9 +816,9 @@
       "tools": true,
       "confidential": false,
       "pricing": {
-        "input_per_mtok_ndollars": 123600000,
-        "output_per_mtok_ndollars": 772500000,
-        "cache_read_per_mtok_ndollars": 12360000
+        "input_per_mtok_ndollars": 103000000,
+        "output_per_mtok_ndollars": 643750000,
+        "cache_read_per_mtok_ndollars": 10300000
       },
       "budget_rates": {
         "input": 200000000,
@@ -849,40 +836,19 @@
       "tools": true,
       "confidential": false,
       "pricing": {
-        "input_per_mtok_ndollars": 3090000000,
-        "output_per_mtok_ndollars": 18540000000,
-        "cache_read_per_mtok_ndollars": 309000000,
+        "input_per_mtok_ndollars": 2575000000,
+        "output_per_mtok_ndollars": 15450000000,
+        "cache_read_per_mtok_ndollars": 257500000,
         "long_context_threshold_tokens": 272000,
-        "long_context_input_per_mtok_ndollars": 6180000000,
-        "long_context_output_per_mtok_ndollars": 27810000000,
-        "long_context_cache_read_per_mtok_ndollars": 618000000
+        "long_context_input_per_mtok_ndollars": 5150000000,
+        "long_context_output_per_mtok_ndollars": 23175000000,
+        "long_context_cache_read_per_mtok_ndollars": 515000000
       },
       "budget_rates": {
         "input": 10000000000,
         "output": 45000000000,
         "cache_read": 10000000000,
         "cache_write": 10000000000
-      }
-    },
-    "gpt-5.5-pro": {
-      "api_shapes": [
-        "responses"
-      ],
-      "available": true,
-      "tools": true,
-      "confidential": false,
-      "pricing": {
-        "input_per_mtok_ndollars": 26234100000,
-        "output_per_mtok_ndollars": 157404600000,
-        "long_context_threshold_tokens": 272000,
-        "long_context_input_per_mtok_ndollars": 52468200000,
-        "long_context_output_per_mtok_ndollars": 236106900000
-      },
-      "budget_rates": {
-        "input": 60000000000,
-        "output": 270000000000,
-        "cache_read": 60000000000,
-        "cache_write": 60000000000
       }
     },
     "gpt-5.6-luna": {
@@ -894,15 +860,15 @@
       "tools": true,
       "confidential": false,
       "pricing": {
-        "input_per_mtok_ndollars": 121540000,
-        "output_per_mtok_ndollars": 729240000,
-        "cache_read_per_mtok_ndollars": 12154000,
-        "cache_write_per_mtok_ndollars": 151925000,
+        "input_per_mtok_ndollars": 103000000,
+        "output_per_mtok_ndollars": 618000000,
+        "cache_read_per_mtok_ndollars": 10300000,
+        "cache_write_per_mtok_ndollars": 128750000,
         "long_context_threshold_tokens": 272000,
-        "long_context_input_per_mtok_ndollars": 243080000,
-        "long_context_output_per_mtok_ndollars": 1093860000,
-        "long_context_cache_read_per_mtok_ndollars": 24308000,
-        "long_context_cache_write_per_mtok_ndollars": 303850000
+        "long_context_input_per_mtok_ndollars": 206000000,
+        "long_context_output_per_mtok_ndollars": 927000000,
+        "long_context_cache_read_per_mtok_ndollars": 20600000,
+        "long_context_cache_write_per_mtok_ndollars": 257500000
       },
       "budget_rates": {
         "input": 400000000,
@@ -920,15 +886,15 @@
       "tools": true,
       "confidential": false,
       "pricing": {
-        "input_per_mtok_ndollars": 2430800000,
-        "output_per_mtok_ndollars": 12154000000,
-        "cache_read_per_mtok_ndollars": 243080000,
-        "cache_write_per_mtok_ndollars": 3038500000,
+        "input_per_mtok_ndollars": 2060000000,
+        "output_per_mtok_ndollars": 10300000000,
+        "cache_read_per_mtok_ndollars": 206000000,
+        "cache_write_per_mtok_ndollars": 2575000000,
         "long_context_threshold_tokens": 272000,
-        "long_context_input_per_mtok_ndollars": 4861600000,
-        "long_context_output_per_mtok_ndollars": 18231000000,
-        "long_context_cache_read_per_mtok_ndollars": 486160000,
-        "long_context_cache_write_per_mtok_ndollars": 6077000000
+        "long_context_input_per_mtok_ndollars": 4120000000,
+        "long_context_output_per_mtok_ndollars": 15450000000,
+        "long_context_cache_read_per_mtok_ndollars": 412000000,
+        "long_context_cache_write_per_mtok_ndollars": 5150000000
       },
       "budget_rates": {
         "input": 8000000000,
@@ -946,15 +912,15 @@
       "tools": true,
       "confidential": false,
       "pricing": {
-        "input_per_mtok_ndollars": 1215400000,
-        "output_per_mtok_ndollars": 7292400000,
-        "cache_read_per_mtok_ndollars": 121540000,
-        "cache_write_per_mtok_ndollars": 1519250000,
+        "input_per_mtok_ndollars": 1030000000,
+        "output_per_mtok_ndollars": 6180000000,
+        "cache_read_per_mtok_ndollars": 103000000,
+        "cache_write_per_mtok_ndollars": 1287500000,
         "long_context_threshold_tokens": 272000,
-        "long_context_input_per_mtok_ndollars": 2430800000,
-        "long_context_output_per_mtok_ndollars": 10938600000,
-        "long_context_cache_read_per_mtok_ndollars": 243080000,
-        "long_context_cache_write_per_mtok_ndollars": 3038500000
+        "long_context_input_per_mtok_ndollars": 2060000000,
+        "long_context_output_per_mtok_ndollars": 9270000000,
+        "long_context_cache_read_per_mtok_ndollars": 206000000,
+        "long_context_cache_write_per_mtok_ndollars": 2575000000
       },
       "budget_rates": {
         "input": 4000000000,
@@ -972,15 +938,15 @@
       "tools": true,
       "confidential": false,
       "pricing": {
-        "input_per_mtok_ndollars": 6077000000,
-        "output_per_mtok_ndollars": 30385000000,
-        "cache_read_per_mtok_ndollars": 607700000,
-        "cache_write_per_mtok_ndollars": 7596250000,
+        "input_per_mtok_ndollars": 5150000000,
+        "output_per_mtok_ndollars": 25750000000,
+        "cache_read_per_mtok_ndollars": 515000000,
+        "cache_write_per_mtok_ndollars": 6437500000,
         "long_context_threshold_tokens": 272000,
-        "long_context_input_per_mtok_ndollars": 12154000000,
-        "long_context_output_per_mtok_ndollars": 45577500000,
-        "long_context_cache_read_per_mtok_ndollars": 1215400000,
-        "long_context_cache_write_per_mtok_ndollars": 15192500000
+        "long_context_input_per_mtok_ndollars": 10300000000,
+        "long_context_output_per_mtok_ndollars": 38625000000,
+        "long_context_cache_read_per_mtok_ndollars": 1030000000,
+        "long_context_cache_write_per_mtok_ndollars": 12875000000
       },
       "budget_rates": {
         "input": 20000000000,
@@ -998,15 +964,15 @@
       "tools": true,
       "confidential": false,
       "pricing": {
-        "input_per_mtok_ndollars": 60770000,
-        "output_per_mtok_ndollars": 303850000,
-        "cache_read_per_mtok_ndollars": 6077000,
-        "cache_write_per_mtok_ndollars": 75962500,
+        "input_per_mtok_ndollars": 51500000,
+        "output_per_mtok_ndollars": 257500000,
+        "cache_read_per_mtok_ndollars": 5150000,
+        "cache_write_per_mtok_ndollars": 64375000,
         "long_context_threshold_tokens": 272000,
-        "long_context_input_per_mtok_ndollars": 121540000,
-        "long_context_output_per_mtok_ndollars": 455775000,
-        "long_context_cache_read_per_mtok_ndollars": 12154000,
-        "long_context_cache_write_per_mtok_ndollars": 151925000
+        "long_context_input_per_mtok_ndollars": 103000000,
+        "long_context_output_per_mtok_ndollars": 386250000,
+        "long_context_cache_read_per_mtok_ndollars": 10300000,
+        "long_context_cache_write_per_mtok_ndollars": 128750000
       },
       "budget_rates": {
         "input": 200000000,
@@ -1024,15 +990,15 @@
       "tools": true,
       "confidential": false,
       "pricing": {
-        "input_per_mtok_ndollars": 1215400000,
-        "output_per_mtok_ndollars": 6077000000,
-        "cache_read_per_mtok_ndollars": 121540000,
-        "cache_write_per_mtok_ndollars": 1519250000,
+        "input_per_mtok_ndollars": 1030000000,
+        "output_per_mtok_ndollars": 5150000000,
+        "cache_read_per_mtok_ndollars": 103000000,
+        "cache_write_per_mtok_ndollars": 1287500000,
         "long_context_threshold_tokens": 272000,
-        "long_context_input_per_mtok_ndollars": 2430800000,
-        "long_context_output_per_mtok_ndollars": 9115500000,
-        "long_context_cache_read_per_mtok_ndollars": 243080000,
-        "long_context_cache_write_per_mtok_ndollars": 3038500000
+        "long_context_input_per_mtok_ndollars": 2060000000,
+        "long_context_output_per_mtok_ndollars": 7725000000,
+        "long_context_cache_read_per_mtok_ndollars": 206000000,
+        "long_context_cache_write_per_mtok_ndollars": 2575000000
       },
       "budget_rates": {
         "input": 4000000000,
@@ -1050,15 +1016,15 @@
       "tools": true,
       "confidential": false,
       "pricing": {
-        "input_per_mtok_ndollars": 1215400000,
-        "output_per_mtok_ndollars": 6077000000,
-        "cache_read_per_mtok_ndollars": 60770000,
-        "cache_write_per_mtok_ndollars": 1519250000,
+        "input_per_mtok_ndollars": 1030000000,
+        "output_per_mtok_ndollars": 5150000000,
+        "cache_read_per_mtok_ndollars": 51500000,
+        "cache_write_per_mtok_ndollars": 1287500000,
         "long_context_threshold_tokens": 272000,
-        "long_context_input_per_mtok_ndollars": 2430800000,
-        "long_context_output_per_mtok_ndollars": 9115500000,
-        "long_context_cache_read_per_mtok_ndollars": 121540000,
-        "long_context_cache_write_per_mtok_ndollars": 3038500000
+        "long_context_input_per_mtok_ndollars": 2060000000,
+        "long_context_output_per_mtok_ndollars": 7725000000,
+        "long_context_cache_read_per_mtok_ndollars": 103000000,
+        "long_context_cache_write_per_mtok_ndollars": 2575000000
       },
       "budget_rates": {
         "input": 4000000000,
@@ -1076,15 +1042,15 @@
       "tools": true,
       "confidential": false,
       "pricing": {
-        "input_per_mtok_ndollars": 607700000,
-        "output_per_mtok_ndollars": 3038500000,
-        "cache_read_per_mtok_ndollars": 30385000,
-        "cache_write_per_mtok_ndollars": 759625000,
+        "input_per_mtok_ndollars": 587100000,
+        "output_per_mtok_ndollars": 2935500000,
+        "cache_read_per_mtok_ndollars": 29355000,
+        "cache_write_per_mtok_ndollars": 733875000,
         "long_context_threshold_tokens": 272000,
-        "long_context_input_per_mtok_ndollars": 1215400000,
-        "long_context_output_per_mtok_ndollars": 4557750000,
-        "long_context_cache_read_per_mtok_ndollars": 60770000,
-        "long_context_cache_write_per_mtok_ndollars": 1519250000
+        "long_context_input_per_mtok_ndollars": 1174200000,
+        "long_context_output_per_mtok_ndollars": 4403250000,
+        "long_context_cache_read_per_mtok_ndollars": 58710000,
+        "long_context_cache_write_per_mtok_ndollars": 1467750000
       },
       "budget_rates": {
         "input": 2000000000,
@@ -1119,9 +1085,9 @@
       "tools": true,
       "confidential": true,
       "pricing": {
-        "input_per_mtok_ndollars": 453200000,
-        "output_per_mtok_ndollars": 2583240000,
-        "cache_read_per_mtok_ndollars": 45320000
+        "input_per_mtok_ndollars": 435896000,
+        "output_per_mtok_ndollars": 2484607200,
+        "cache_read_per_mtok_ndollars": 43589600
       },
       "budget_rates": {
         "input": 500000000,
@@ -1138,9 +1104,9 @@
       "tools": true,
       "confidential": false,
       "pricing": {
-        "input_per_mtok_ndollars": 1690230000,
-        "output_per_mtok_ndollars": 8451150000,
-        "cache_read_per_mtok_ndollars": 169023000
+        "input_per_mtok_ndollars": 1711860000,
+        "output_per_mtok_ndollars": 8559300000,
+        "cache_read_per_mtok_ndollars": 171186000
       },
       "budget_rates": {
         "input": 3000000000,
@@ -1157,9 +1123,9 @@
       "tools": true,
       "confidential": true,
       "pricing": {
-        "input_per_mtok_ndollars": 2163000000,
-        "output_per_mtok_ndollars": 10815000000,
-        "cache_read_per_mtok_ndollars": 216300000
+        "input_per_mtok_ndollars": 2533800000,
+        "output_per_mtok_ndollars": 12669000000,
+        "cache_read_per_mtok_ndollars": 253380000
       },
       "budget_rates": {
         "input": 3000000000,
@@ -1176,9 +1142,9 @@
       "tools": true,
       "confidential": false,
       "pricing": {
-        "input_per_mtok_ndollars": 1233940000,
-        "output_per_mtok_ndollars": 6169700000,
-        "cache_read_per_mtok_ndollars": 123394000
+        "input_per_mtok_ndollars": 1359600000,
+        "output_per_mtok_ndollars": 6798000000,
+        "cache_read_per_mtok_ndollars": 135960000
       },
       "budget_rates": {
         "input": 2000000000,
@@ -1206,56 +1172,6 @@
         "cache_write": 2000000000
       }
     },
-    "mimo-v2.6-pro-ultraspeed": {
-      "api_shapes": [
-        "chat.completions"
-      ],
-      "available": true,
-      "tools": true,
-      "confidential": false,
-      "pricing": {
-        "input_per_mtok_ndollars": 3808425000,
-        "output_per_mtok_ndollars": 7616850000,
-        "cache_read_per_mtok_ndollars": 31518000
-      },
-      "budget_rates": {
-        "input": 4350000000,
-        "output": 8700000000,
-        "cache_read": 4350000000,
-        "cache_write": 4350000000
-      }
-    },
-    "mimo-v2.6-pro-ultraspeed-tee": {
-      "api_shapes": [
-        "chat.completions"
-      ],
-      "available": true,
-      "tools": true,
-      "confidential": true,
-      "pricing": {
-        "input_per_mtok_ndollars": 3808425000,
-        "output_per_mtok_ndollars": 7616850000,
-        "cache_read_per_mtok_ndollars": 31518000
-      },
-      "budget_rates": {
-        "input": 4350000000,
-        "output": 8700000000,
-        "cache_read": 4350000000,
-        "cache_write": 4350000000
-      }
-    },
-    "minimax/h3": {
-      "api_shapes": [
-        "videos"
-      ],
-      "available": true,
-      "tools": false,
-      "confidential": false,
-      "pricing": {
-        "output_per_video_second_ndollars": 57680000
-      },
-      "budget_rates": null
-    },
     "o3": {
       "api_shapes": [
         "chat.completions",
@@ -1265,34 +1181,15 @@
       "tools": true,
       "confidential": false,
       "pricing": {
-        "input_per_mtok_ndollars": 1748940000,
-        "output_per_mtok_ndollars": 6995760000,
-        "cache_read_per_mtok_ndollars": 437235000
+        "input_per_mtok_ndollars": 1730400000,
+        "output_per_mtok_ndollars": 6921600000,
+        "cache_read_per_mtok_ndollars": 432600000
       },
       "budget_rates": {
         "input": 2000000000,
         "output": 8000000000,
         "cache_read": 2000000000,
         "cache_write": 2000000000
-      }
-    },
-    "qwen3.5-397b-a17b-tee": {
-      "api_shapes": [
-        "chat.completions"
-      ],
-      "available": true,
-      "tools": true,
-      "confidential": true,
-      "pricing": {
-        "input_per_mtok_ndollars": 440325000,
-        "output_per_mtok_ndollars": 2935500000,
-        "cache_read_per_mtok_ndollars": 44032500
-      },
-      "budget_rates": {
-        "input": 450000000,
-        "output": 3000000000,
-        "cache_read": 450000000,
-        "cache_write": 450000000
       }
     },
     "qwen3.6-27b-tee": {
@@ -1322,9 +1219,9 @@
       "tools": true,
       "confidential": false,
       "pricing": {
-        "input_per_mtok_ndollars": 63860000,
-        "output_per_mtok_ndollars": 382387500,
-        "cache_read_per_mtok_ndollars": 63860000
+        "input_per_mtok_ndollars": 74077600,
+        "output_per_mtok_ndollars": 443569500,
+        "cache_read_per_mtok_ndollars": 74077600
       },
       "budget_rates": {
         "input": 248000000,
